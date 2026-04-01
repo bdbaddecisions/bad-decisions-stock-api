@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-title="aboutTitle">About Us - Bad Decisions</title>
+    
+    <link rel="icon" type="image/png" href="Slike/Logo_bd_no_bg_black.png">
+  <meta name="description" content="Learn about Bad Decisions - premium streetwear brand crafting bold hoodies for those who dare to stand out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <script>
+  window.SnipcartSettings = {
+    publicApiKey: 'OWMwZmM4MDYtYTdkOC00Y2NkLWE3ZjAtOWQ4NjVlMTQ5N2JkNjM5MDYxNTYxOTI5NzI3MTcw',
+    modalStyle: "side",
+    currency: "eur"
+  };
+
+  (() => {
+    var c, d;
+    (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
+
+    var s, S;
+    (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
+
+    var l, p;
+    (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
+
+    var w, u;
+    (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
+
+    var f =
+      window.SnipcartSettings.version.includes("v3.0.0-ci") ||
+      (window.SnipcartSettings.version != "3.0" &&
+        window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+          numeric: true,
+          sensitivity: "base"
+        }) === -1);
+
+    var m = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+    window.LoadSnipcart = o;
+
+    document.readyState === "loading"
+      ? document.addEventListener("DOMContentLoaded", r)
+      : r();
+
+    function r() {
+      window.SnipcartSettings.loadStrategy
+        ? window.SnipcartSettings.loadStrategy === "on-user-interaction" &&
+          (m.forEach(t => document.addEventListener(t, o)),
+          setTimeout(o, window.SnipcartSettings.timeoutDuration))
+        : o();
+    }
+
+    var a = false;
+
+    function o() {
+      if (a) return;
+      a = true;
+
+      let t = document.getElementsByTagName("head")[0],
+          e = document.querySelector("#snipcart"),
+          i = document.querySelector(`script[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),
+          n = document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);
+
+      if (!e) {
+        e = document.createElement("div");
+        e.id = "snipcart";
+        e.setAttribute("hidden", "true");
+        document.body.appendChild(e);
+      }
+
+      v(e);
+
+      if (!i) {
+        i = document.createElement("script");
+        i.src = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`;
+        i.async = true;
+        t.appendChild(i);
+      }
+
+      if (!n) {
+        n = document.createElement("link");
+        n.rel = "stylesheet";
+        n.type = "text/css";
+        n.href = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`;
+        t.prepend(n);
+      }
+
+      m.forEach(g => document.removeEventListener(g, o));
+    }
+
+    function v(t) {
+      if (!f) return;
+
+      t.dataset.apiKey = window.SnipcartSettings.publicApiKey;
+      if (window.SnipcartSettings.addProductBehavior) {
+        t.dataset.configAddProductBehavior = window.SnipcartSettings.addProductBehavior;
+      }
+      if (window.SnipcartSettings.modalStyle) {
+        t.dataset.configModalStyle = window.SnipcartSettings.modalStyle;
+      }
+      if (window.SnipcartSettings.currency) {
+        t.dataset.currency = window.SnipcartSettings.currency;
+      }
+      if (window.SnipcartSettings.templatesUrl) {
+        t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl;
+      }
+    }
+  })();
+</script>
+    
+    
+  <!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+
+      <!-- Logo -->
+      <a href="index.html" class="logo" aria-label="Bad Decisions Home">
+        <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="navShop">Shop</a>
+        <a href="about.html" class="nav-link active" data-i18n="navAbout">About</a>
+        <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <!-- Right side actions -->
+      <div class="nav-actions">
+
+        <!-- Language dropdown (EN / SL) -->
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
+
+            <!-- Globe icon -->
+            <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3c3 3 3 15 0 18"></path>
+              <path d="M12 3c-3 3-3 15 0 18"></path>
+            </svg>
+
+            <!-- Current language code under globe (GB / SI) -->
+            <span id="currentLang" class="lang-code-display">GB</span>
+
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu" aria-label="Language menu">
+            <button type="button" class="lang-item" data-lang="en" role="menuitem">
+              <span class="lang-code">GB</span>
+              <span class="lang-name" data-i18n="langEnglish">English</span>
+              <img class="lang-item-flag" src="flags/gb.png" alt="">
+            </button>
+
+            <button type="button" class="lang-item" data-lang="sl" role="menuitem">
+              <span class="lang-code">SI</span>
+              <span class="lang-name" data-i18n="langSlovenian">Slovenščina</span>
+              <img class="lang-item-flag" src="flags/si.png" alt="">
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="menu-toggle" id="menuToggle" type="button"
+  aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+  <span class="line line-1"></span>
+  <span class="line line-2"></span>
+</button>
+
+        <!-- Cart -->
+        <a href="#" class="bd-cart snipcart-checkout" aria-label="Open cart">
+  <img src="Slike/cart.png" alt="Cart" class="bd-cart-icon">
+  <span class="bd-cart-badge snipcart-items-count">0</span>
+</a>
+
+      </div>
+
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="mobile-menu-inner">
+    <a href="index.html" class="mobile-link" data-i18n="navHome">Home</a>
+    <a href="shop.html" class="mobile-link" data-i18n="navShop">Shop</a>
+    <a href="about.html" class="mobile-link active" data-i18n="navAbout">About</a>
+    <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
+  </div>
+</nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-subtitle" data-i18n="aboutSubtitle">Our Story</p>
+      <h1 class="page-title" data-i18n="aboutPageTitle">More Than Just Hoodies</h1>
+      <p class="page-description" data-i18n="aboutStory1">
+        Bad Decisions was born from a simple belief: what you wear should reflect who you are, not who you're supposed to be.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="about-story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <h2 data-i18n="aboutSubtitle">Our Story</h2>
+          <p data-i18n="aboutStory1">Bad Decisions was born from a simple belief: what you wear should reflect who you are, not who you're supposed to be.</p>
+          <p data-i18n="aboutStory2">Founded in 2025, we started as a small team of designers and streetwear enthusiasts who were tired of seeing the same generic hoodies everywhere.</p>
+          <p data-i18n="aboutStory3">Today, we're proud to create pieces that help our community express their individuality while never compromising on quality or comfort.</p>
+        </div>
+
+        <div class="story-content">
+          <h2 data-i18n="aboutMissionSubtitle">Our Mission</h2>
+          <p data-i18n="aboutMissionText1">We create premium streetwear that combines bold design with uncompromising quality. Every piece is crafted for those who dare to be different.</p>
+          <p data-i18n="aboutMissionText2">Our commitment extends beyond fashion – we're building a community of individuals who aren't afraid to make their own choices and stand by them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="about-values">
+    <div class="container">
+      <h2 class="section-title" data-i18n="aboutValuesTitle">Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h3 data-i18n="aboutValue1Title">Quality Over Everything</h3>
+          <p data-i18n="aboutValue1Text">We source premium materials and work with skilled craftspeople to create hoodies that last.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">✊</div>
+          <h3 data-i18n="aboutValue2Title">Unapologetic Design</h3>
+          <p data-i18n="aboutValue2Text">Our designs are bold, intentional, and made for those who refuse to blend in.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">♻️</div>
+          <h3 data-i18n="aboutValue3Title">Sustainability</h3>
+          <p data-i18n="aboutValue3Text">We're committed to ethical production and reducing our environmental footprint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bd-footer">
+    <div class="container bd-footer__container">
+
+      <div class="bd-footer__grid">
+
+        <!-- Brand -->
+        <div class="bd-footer__brand">
+          <a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <p class="bd-footer__tagline" data-i18n-html="footerTagline">
+            Premium hoodies for those who make<br>
+            moves, not excuses.
+          </p>
+        </div>
+
+        <!-- Shop -->
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerShop">SHOP</h4>
+          <ul class="bd-footer__links">
+            <li><a href="shop.html" data-i18n="footerAllHoodies">All Hoodies</a></li>
+            <li><a href="shop.html" data-i18n="footerOversized">Oversized hoodie</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerCompany">COMPANY</h4>
+          <ul class="bd-footer__links">
+            <li><a href="about.html" data-i18n="footerAboutUs">About Us</a></li>
+            <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+            <li><a href="shipping.html" data-i18n="footerShipping">Shipping</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerLegal">LEGAL</h4>
+          <ul class="bd-footer__links">
+            <li><a href="terms.html" data-i18n="footerTerms">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a></li>
+            <li><a href="cookie.html" data-i18n="footerCookie">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="bd-footer__bottom">
+        <p class="bd-footer__copy">
+          &copy; <span id="bdFooterYear">2026</span> <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
+        </p>
+
+        <div class="bd-footer__social">
+
+          <!-- Instagram -->
+          <a class="bd-footer__icon"
+             href="https://www.instagram.com/bad.decisions_official/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
+
+          <!-- TikTok -->
+          <a class="bd-footer__icon"
+             href="https://www.tiktok.com/@bd.bad.decisions"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M21 8.5a6.5 6.5 0 0 1-4.6-1.9v7.4a5.5 5.5 0 1 1-4.8-5.5v3a2.5 2.5 0 1 0 1.8 2.4V2h3a6.5 6.5 0 0 0 4.6 3v3.5z"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ✅ IMPORTANT FIX:
+       Migrate old "cart" -> new "bd_cart" BEFORE script.js runs -->
+  <script>
+    (function () {
+      const OLD_KEY = "cart";
+      const NEW_KEY = "bd_cart";
+
+      const oldRaw = localStorage.getItem(OLD_KEY);
+      const newRaw = localStorage.getItem(NEW_KEY);
+
+      // If new cart already exists, don't overwrite it.
+      if (!oldRaw || newRaw) return;
+
+      try {
+        const oldCart = JSON.parse(oldRaw) || [];
+        const migrated = oldCart.map((item) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          qty: item.qty ?? item.quantity ?? 1,
+        }));
+
+        localStorage.setItem(NEW_KEY, JSON.stringify(migrated));
+        localStorage.removeItem(OLD_KEY);
+      } catch {
+        // ignore
+      }
+    })();
+  </script>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+    
+</body>
+</html>

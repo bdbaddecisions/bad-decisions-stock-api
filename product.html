@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n-title="productTitlePage">Classic Oversized Hoodie - Bad Decisions</title>
+
+  <link rel="icon" type="image/png" href="Slike/Logo_bd_no_bg_black.png">
+  <meta name="description" content="Premium oversized hoodie crafted from heavyweight French terry cotton." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --bd-font-sans: var(--font-body);
+      --bd-font-display: var(--font-heading);
+
+      --bd-navy: #1f2a44;
+      --bd-text: #111;
+      --bd-muted: #6b7280;
+      --bd-line: rgba(0,0,0,.10);
+      --bd-card: #f4f4f5;
+      --bd-radius: 16px;
+      --bd-success: #16a34a;
+      --bd-danger: #c62828;
+    }
+
+    body{
+      background:#fff;
+      color:#111;
+      font-family: var(--bd-font-sans);
+    }
+
+    .breadcrumb { padding: 110px 0 20px; }
+    .breadcrumb-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family: var(--bd-font-sans);
+      font-size:13px;
+      color: var(--bd-muted);
+    }
+    .breadcrumb-list a{ color: var(--bd-muted); text-decoration:none; }
+    .breadcrumb-list a:hover{ color: var(--bd-text); }
+    .breadcrumb-sep{ color:#9aa0a6; }
+    .breadcrumb-current{ color: var(--bd-text); font-weight:600; }
+
+    .product-page{ padding: 20px 0 160px; }
+    .product-grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .product-grid{ grid-template-columns:1fr; }
+    }
+
+    .gallery-main{
+      border-radius:18px;
+      overflow:hidden;
+      background: var(--bd-card);
+      position:relative;
+      height: 560px;
+    }
+
+    .gallery-main img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    @media (max-width: 768px){
+      .gallery-main{
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      .gallery-main img{
+        object-fit: contain;
+      }
+    }
+
+    .gallery-badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+      background: var(--bd-navy);
+      color:#fff;
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      padding:8px 12px;
+      border-radius:999px;
+      font-family: var(--bd-font-sans);
+      font-weight:700;
+      z-index: 2;
+    }
+
+    .thumbs{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .thumb{
+      border-radius:14px;
+      overflow:hidden;
+      background: var(--bd-card);
+      border:2px solid transparent;
+      cursor:pointer;
+      aspect-ratio:1/1;
+      display:block;
+      padding:0;
+      appearance:none;
+      -webkit-appearance:none;
+      border-width:2px;
+    }
+
+    .thumb.active{ border-color: var(--bd-navy); }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .product-info{ padding-top: 6px; }
+
+    .kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#9aa0a6;
+      font-family: var(--bd-font-sans);
+      margin-bottom:10px;
+    }
+
+    .product-title{
+      font-family: var(--bd-font-display);
+      font-size:40px;
+      line-height:1.1;
+      margin:0 0 14px;
+      color: var(--bd-text);
+      font-weight:700;
+    }
+
+    .product-price{
+      font-family: var(--bd-font-display);
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:18px;
+      color: var(--bd-text);
+    }
+
+    .product-desc{
+      color: var(--bd-muted);
+      line-height:1.8;
+      margin-bottom:22px;
+      font-family: var(--bd-font-sans);
+      font-size:14px;
+    }
+
+    .details-row{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      border-top:1px solid #eee;
+      border-bottom:1px solid #eee;
+      padding:16px 0;
+      margin-bottom:18px;
+    }
+
+    .detail{
+      text-align:center;
+      font-family: var(--bd-font-sans);
+    }
+
+    .detail small{
+      display:block;
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#9aa0a6;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .detail strong{
+      font-size:13px;
+      color: var(--bd-text);
+      font-weight:700;
+    }
+
+    .option-group{ margin: 16px 0; }
+
+    .option-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+      font-family: var(--bd-font-sans);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+      color: var(--bd-text);
+    }
+
+    .selected-value{
+      letter-spacing:0;
+      text-transform:none;
+      font-weight:600;
+      color: var(--bd-muted);
+      font-size:12px;
+    }
+
+    .colors{ display:flex; gap:10px; }
+
+    .color-btn{
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      border:2px solid transparent;
+      cursor:pointer;
+      outline:none;
+      background: var(--bd-navy);
+    }
+
+    .color-btn.active{ border-color: var(--bd-navy); }
+
+    .color-btn.solo{
+      border-color: var(--bd-navy);
+      box-shadow: 0 0 0 3px rgba(31,42,68,.18);
+      cursor: default;
+    }
+
+    .sizes{ display:flex; gap:10px; flex-wrap:wrap; }
+
+    .size-btn{
+      height:44px;
+      min-width:48px;
+      padding:0 14px;
+      border-radius:12px;
+      border:1.5px solid #e6e6e6;
+      background:#fff;
+      font-weight:800;
+      cursor:pointer;
+      font-family: var(--bd-font-sans);
+      font-size:13px;
+      color: var(--bd-text);
+      transition: .2s ease;
+    }
+
+    .size-btn.active{
+      background: var(--bd-navy);
+      border-color: var(--bd-navy);
+      color:#fff;
+    }
+
+    .size-error{
+      color: var(--bd-danger);
+      font-size:12px;
+      margin-top:8px;
+      display:none;
+      font-family: var(--bd-font-sans);
+    }
+
+    .qty-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin: 18px 0;
+      font-family: var(--bd-font-sans);
+    }
+
+    .qty-label{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+      color: var(--bd-text);
+    }
+
+    .qty{
+      display:flex;
+      align-items:center;
+      border:1.5px solid #e6e6e6;
+      border-radius:12px;
+      overflow:hidden;
+      height:44px;
+      background:#fff;
+    }
+
+    .qty button{
+      width:44px;
+      height:44px;
+      font-size:18px;
+      font-weight:800;
+      cursor:pointer;
+      background:#fff;
+      border:0;
+      color: var(--bd-text);
+    }
+
+    .qty span{
+      width:56px;
+      text-align:center;
+      font-weight:800;
+      font-family: var(--bd-font-sans);
+      color: var(--bd-text);
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .cta-row .btn{ flex:1; }
+
+    .btn.btn-primary:hover{
+      filter: brightness(1.08);
+    }
+
+    #addToCartBtn.disabled{
+      opacity:.55;
+      cursor:not-allowed;
+    }
+
+    .top-toast{
+      position: fixed;
+      top: 86px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--bd-success);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-family: var(--bd-font-sans);
+      font-weight: 800;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 9999;
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    }
+
+    .top-toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .bd-cart{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bd-cart-badge{
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: #000;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 18px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+      
+    .stock-info{
+  margin-top:10px;
+  font-size:13px;
+  color: var(--bd-muted);
+  font-family: var(--bd-font-sans);
+  font-weight:600;
+  min-height:20px;
+  transition: color .25s ease, transform .25s ease, opacity .25s ease;
+}
+
+.stock-info.low-stock{
+  color: #c62828;
+  font-weight:800;
+  animation: stockPulse 1.2s ease-in-out infinite;
+}
+
+.stock-info.out-of-stock{
+  color: #c62828;
+  font-weight:800;
+}
+
+@keyframes stockPulse{
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  50%{
+    transform: scale(1.04);
+    opacity: .88;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.qty-hint{
+  margin:6px 0 0;
+  font-size:12px;
+  color: var(--bd-muted);
+  font-family: var(--bd-font-sans);
+}
+
+.cart-stock-message{
+  margin-top:10px;
+  font-size:13px;
+  color: var(--bd-danger);
+  font-family: var(--bd-font-sans);
+  min-height:18px;
+}
+      
+      
+  </style>
+</head>
+
+<body>
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: 'OWMwZmM4MDYtYTdkOC00Y2NkLWE3ZjAtOWQ4NjVlMTQ5N2JkNjM5MDYxNTYxOTI5NzI3MTcw',
+      modalStyle: "side",
+      currency: "eur"
+    };
+
+    (() => {
+      var c, d;
+      (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
+      var s, S;
+      (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
+      var l, p;
+      (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
+      var w, u;
+      (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
+
+      var isV3 = window.SnipcartSettings.version.includes("v3.0.0-ci") ||
+        window.SnipcartSettings.version != "3.0" &&
+        window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+          numeric: !0,
+          sensitivity: "base"
+        }) === -1;
+
+      var listeners = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+      window.LoadSnipcart = loadSnipcart;
+
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", init)
+        : init();
+
+      function init() {
+        if (window.SnipcartSettings.loadStrategy) {
+          if (window.SnipcartSettings.loadStrategy === "on-user-interaction") {
+            listeners.forEach(evt => document.addEventListener(evt, loadSnipcart));
+            setTimeout(loadSnipcart, window.SnipcartSettings.timeoutDuration);
+          }
+        } else {
+          loadSnipcart();
+        }
+      }
+
+      var loaded = false;
+
+      function loadSnipcart() {
+        if (loaded) return;
+        loaded = true;
+
+        let head = document.getElementsByTagName("head")[0];
+        let container = document.querySelector("#snipcart");
+        let scriptTag = document.querySelector(`script[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`);
+        let cssTag = document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);
+
+        if (!container) {
+          container = document.createElement("div");
+          container.id = "snipcart";
+          container.setAttribute("hidden", "true");
+          document.body.appendChild(container);
+        }
+
+        applyConfig(container);
+
+        if (!scriptTag) {
+          scriptTag = document.createElement("script");
+          scriptTag.src = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`;
+          scriptTag.async = true;
+          head.appendChild(scriptTag);
+        }
+
+        if (!cssTag) {
+          cssTag = document.createElement("link");
+          cssTag.rel = "stylesheet";
+          cssTag.type = "text/css";
+          cssTag.href = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`;
+          head.prepend(cssTag);
+        }
+
+        listeners.forEach(evt => document.removeEventListener(evt, loadSnipcart));
+      }
+
+      function applyConfig(el) {
+        if (!isV3) return;
+        el.dataset.apiKey = window.SnipcartSettings.publicApiKey;
+        if (window.SnipcartSettings.addProductBehavior) el.dataset.configAddProductBehavior = window.SnipcartSettings.addProductBehavior;
+        if (window.SnipcartSettings.modalStyle) el.dataset.configModalStyle = window.SnipcartSettings.modalStyle;
+        if (window.SnipcartSettings.currency) el.dataset.currency = window.SnipcartSettings.currency;
+        if (window.SnipcartSettings.templatesUrl) el.dataset.templatesUrl = window.SnipcartSettings.templatesUrl;
+      }
+    })();
+  </script>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo" aria-label="Bad Decisions Home">
+          <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
+        </a>
+
+        <nav class="nav-desktop" aria-label="Primary navigation">
+          <a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
+          <a href="shop.html" class="nav-link" data-i18n="navShop">Shop</a>
+          <a href="about.html" class="nav-link" data-i18n="navAbout">About</a>
+          <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
+              <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3c3 3 3 15 0 18"></path>
+                <path d="M12 3c-3 3-3 15 0 18"></path>
+              </svg>
+              <span id="currentLang" class="lang-code-display">GB</span>
+            </button>
+
+            <div class="lang-menu" id="langMenu" role="menu" aria-label="Language menu">
+              <button type="button" class="lang-item" data-lang="en" role="menuitem">
+                <span class="lang-code">GB</span>
+                <span class="lang-name" data-i18n="langEnglish">English</span>
+                <img class="lang-item-flag" src="flags/gb.png" alt="">
+              </button>
+
+              <button type="button" class="lang-item" data-lang="sl" role="menuitem">
+                <span class="lang-code">SI</span>
+                <span class="lang-name" data-i18n="langSlovenian">Slovenščina</span>
+                <img class="lang-item-flag" src="flags/si.png" alt="">
+              </button>
+            </div>
+          </div>
+
+          <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+          </button>
+
+          <a href="#" class="bd-cart snipcart-checkout" aria-label="Open cart">
+            <img src="Slike/cart.png" alt="Cart" class="bd-cart-icon">
+            <span class="bd-cart-badge snipcart-items-count">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-menu-inner">
+        <a href="index.html" class="mobile-link" data-i18n="navHome">Home</a>
+        <a href="shop.html" class="mobile-link" data-i18n="navShop">Shop</a>
+        <a href="about.html" class="mobile-link" data-i18n="navAbout">About</a>
+        <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="index.html" data-i18n="navHome">Home</a></li>
+        <li class="breadcrumb-sep">›</li>
+        <li><a href="shop.html" data-i18n="navShop">Shop</a></li>
+        <li class="breadcrumb-sep">›</li>
+        <li class="breadcrumb-current" data-i18n="productName">Classic Oversized Hoodie</li>
+      </ol>
+    </div>
+  </nav>
+
+  <div class="top-toast" id="topToast" role="status" aria-live="polite" data-i18n="addedToCart">Added to cart</div>
+
+  <section class="product-page">
+    <div class="container">
+      <div class="product-grid">
+        <div>
+          <div class="gallery-main">
+            <span class="gallery-badge" data-i18n="productBadge">Best Seller</span>
+            <img id="mainImage" src="Slike/product_slika.jpeg" alt="Classic Oversized Hoodie">
+          </div>
+
+          <div class="thumbs">
+            <button class="thumb active" type="button" data-src="Slike/product_slika.jpeg" aria-label="View 1">
+              <img src="Slike/product_slika.jpeg" alt="View 1">
+            </button>
+            <button class="thumb" type="button" data-src="Slike/product_slika2.JPG" aria-label="View 2">
+              <img src="Slike/product_slika2.JPG" alt="View 2">
+            </button>
+            <button class="thumb" type="button" data-src="Slike/product_slika3.jpeg" aria-label="View 3">
+              <img src="Slike/product_slika3.jpeg" alt="View 3">
+            </button>
+            <button class="thumb" type="button" data-src="Slike/product_slika4.png" aria-label="View 4">
+              <img src="Slike/product_slika4.png" alt="View 4">
+            </button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="kicker" data-i18n="productCollection">Oversized Collection</div>
+          <h1 class="product-title" data-i18n="productName">Bad decisions hoodie</h1>
+          <div class="product-price">€49.99</div>
+
+          <div class="product-rating-summary" id="productRatingSummary">
+            <span class="product-rating-stars" id="productStars">☆☆☆☆☆</span>
+            <span class="product-rating-text">
+              <span id="productRatingValue">—</span>
+              (<span id="productRatingCount">0</span>)
+            </span>
+            <a href="#reviewsSection" class="product-review-link" data-i18n="productWriteReview">Write a review</a>
+          </div>
+
+          <p class="product-desc" data-i18n="productDescription">
+            Our signature oversized silhouette. Crafted from heavyweight French terry for that perfect drape.
+            The ultimate statement piece for those who refuse to blend in. Pre-washed for a lived-in feel from day one.
+          </p>
+
+          <div class="details-row">
+            <div class="detail">
+              <small data-i18n="productFabricLabel">Fabric</small>
+              <strong data-i18n="productFabricValue">350gsm</strong>
+            </div>
+            <div class="detail">
+              <small data-i18n="productFitLabel">Fit</small>
+              <strong data-i18n="productFitValue">Oversized</strong>
+            </div>
+            <div class="detail">
+              <small data-i18n="productMaterialLabel">Material</small>
+              <strong data-i18n="productMaterialValue">100% cotton</strong>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <div class="option-head">
+              <span data-i18n="color">Color</span>
+              <span class="selected-value" id="selectedColor" data-i18n="navyBlue">Navy Blue</span>
+            </div>
+            <div class="colors">
+              <button class="color-btn solo active" data-color="Navy Blue" aria-label="Navy Blue" type="button"></button>
+            </div>
+          </div>
+
+          <div class="option-group">
+  <div class="option-head">
+    <span data-i18n="size">Size</span>
+    <span class="selected-value" id="selectedSize">Select size</span>
+  </div>
+
+  <div class="sizes">
+    <button class="size-btn" data-size="S" type="button">S</button>
+    <button class="size-btn" data-size="M" type="button">M</button>
+    <button class="size-btn" data-size="L" type="button">L</button>
+    <button class="size-btn" data-size="XL" type="button">XL</button>
+  </div>
+
+  <p id="stockInfo" class="stock-info">Select a size to see stock.</p>
+  <p id="sizeError" class="size-error">Please select a size.</p>
+</div>
+
+          <div class="qty-row">
+  <div>
+    <div class="qty-label" data-i18n="productQuantity">Quantity</div>
+    <p id="qtyHint" class="qty-hint">Max: —</p>
+  </div>
+
+  <div class="qty">
+    <button type="button" id="qtyMinus">−</button>
+    <span id="qtyValue">1</span>
+    <button type="button" id="qtyPlus">+</button>
+  </div>
+</div>
+
+          <div class="cta-row">
+  <button
+    class="btn btn-primary btn-full snipcart-add-item"
+    id="addToCartBtn"
+    type="button"
+    data-item-id="oversized-hoodie"
+    data-item-price="49.99"
+    data-item-url="https://nonconsequentially-holoblastic-daysi.ngrok-free.dev/index.html"
+    data-item-description="Bad Decisions hoodie"
+    data-item-image="Slike/product_slika.jpeg"
+    data-item-name="Bad decisions hoodie"
+    data-item-quantity="1"
+    data-item-custom1-name="Size"
+    data-item-custom1-options="S|M|L|XL"
+    data-item-custom1-value=""
+    data-item-custom1-required="true"
+    data-item-custom2-name="Color"
+    data-item-custom2-options="Navy Blue"
+    data-item-custom2-value="Navy Blue"
+    data-item-custom2-required="true"
+    data-item-weight="500"
+    data-item-shippable="true"
+  >
+    <span data-i18n="productAddToCart">Add to Cart</span> —
+    <span id="totalPrice">€49.99</span>
+  </button>
+</div>
+
+<p id="cartStockMessage" class="cart-stock-message"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bd-reviews" id="reviewsSection">
+    <div class="container">
+      <div class="bd-reviews__head">
+        <p class="bd-reviews__eyebrow" data-i18n="productReviewsEyebrow">Customer Reviews</p>
+        <h2 class="bd-reviews__title" data-i18n="productReviewsTitle">What people are saying</h2>
+
+        <div class="bd-reviews__summary">
+          <span class="bd-reviews__stars">★★★★★</span>
+          <span class="bd-reviews__rating" id="reviewsAverage">— / 5</span>
+          <span class="bd-reviews__count" id="reviewsCount" data-i18n="productReviewsCountEmpty">Based on 0 reviews</span>
+        </div>
+      </div>
+
+      <div class="bd-review-form-wrap">
+        <h3 class="bd-review-form__title" data-i18n="productLeaveReview">Leave a review</h3>
+
+        <form id="reviewForm" class="bd-review-form">
+          <div class="bd-review-form__row bd-review-form__row--three">
+            <input
+              type="text"
+              id="reviewName"
+              placeholder="Your name"
+              data-i18n-placeholder="productReviewNamePlaceholder"
+              required
+              maxlength="50"
+            >
+
+            <input
+              type="email"
+              id="reviewEmail"
+              placeholder="Your email"
+              data-i18n-placeholder="productReviewEmailPlaceholder"
+              required
+              maxlength="120"
+            >
+
+            <select id="reviewRating" required>
+              <option value="" data-i18n="productReviewRatingPlaceholder">Rating</option>
+              <option value="5">5 ★</option>
+              <option value="4">4 ★</option>
+              <option value="3">3 ★</option>
+              <option value="2">2 ★</option>
+              <option value="1">1 ★</option>
+            </select>
+          </div>
+
+          <input
+            type="file"
+            id="reviewImage"
+            accept="image/png,image/jpeg,image/webp"
+          >
+
+          <textarea
+            id="reviewText"
+            placeholder="Write your review..."
+            data-i18n-placeholder="productReviewTextPlaceholder"
+            required
+            minlength="10"
+            maxlength="500"
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary" data-i18n="productSubmitReview">
+            Submit Review
+          </button>
+
+          <p class="bd-review-form__note" id="reviewMessage"></p>
+        </form>
+      </div>
+
+      <div class="bd-reviews__grid" id="reviewsList"></div>
+    </div>
+  </section>
+
+  <footer class="bd-footer">
+    <div class="container bd-footer__container">
+      <div class="bd-footer__grid">
+        <div class="bd-footer__brand">
+          <a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <p class="bd-footer__tagline" data-i18n-html="footerTagline">
+            Premium hoodies for those who make<br>
+            moves, not excuses.
+          </p>
+        </div>
+
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerShop">SHOP</h4>
+          <ul class="bd-footer__links">
+            <li><a href="shop.html" data-i18n="footerAllHoodies">All Hoodies</a></li>
+            <li><a href="shop.html" data-i18n="footerOversized">Oversized hoodie</a></li>
+          </ul>
+        </div>
+
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerCompany">COMPANY</h4>
+          <ul class="bd-footer__links">
+            <li><a href="about.html" data-i18n="footerAboutUs">About Us</a></li>
+            <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+            <li><a href="shipping.html" data-i18n="footerShipping">Shipping</a></li>
+          </ul>
+        </div>
+
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerLegal">LEGAL</h4>
+          <ul class="bd-footer__links">
+            <li><a href="terms.html" data-i18n="footerTerms">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a></li>
+            <li><a href="cookie.html" data-i18n="footerCookie">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bd-footer__bottom">
+        <p class="bd-footer__copy">
+          &copy; <span id="bdFooterYear">2026</span> <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
+        </p>
+
+        <div class="bd-footer__social">
+          <a class="bd-footer__icon"
+             href="https://www.instagram.com/bad.decisions_official/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
+
+          <a class="bd-footer__icon"
+             href="https://www.tiktok.com/@bd.bad.decisions"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M21 8.5a6.5 6.5 0 0 1-4.6-1.9v7.4a5.5 5.5 0 1 1-4.8-5.5v3a2.5 2.5 0 1 0 1.8 2.4V2h3a6.5 6.5 0 0 0 4.6 3v3.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="reviews.js"></script>
+
+    
+    
+  <script>
+(() => {
+  const PRODUCT = {
+    id: "oversized-hoodie",
+    name: "Bad decisions hoodie",
+    price: 49.99,
+    image: "Slike/product_slika.jpeg"
+  };
+
+  let selectedColor = "Navy Blue";
+  let selectedSize = "";
+  let qty = 1;
+  let stockBySize = {};
+
+  async function loadStock() {
+    try {
+      const res = await fetch("/api/product-stock");
+      const data = await res.json();
+      stockBySize = data.stockBySize || {};
+    } catch (err) {
+      console.error("Stock load failed:", err);
+      stockBySize = {};
+    }
+  }
+
+  function getStockForSize(size) {
+    if (!size) return 0;
+    return Number(stockBySize[size] || 0);
+  }
+
+  function disableOutOfStockSizes() {
+    document.querySelectorAll(".size-btn").forEach((btn) => {
+      const size = btn.dataset.size;
+      const stock = getStockForSize(size);
+
+      if (stock <= 0) {
+        btn.disabled = true;
+        btn.style.opacity = "0.4";
+        btn.style.cursor = "not-allowed";
+      } else {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btn.style.cursor = "pointer";
+      }
+    });
+  }
+
+  function updateStockInfo() {
+    const stockInfo = document.getElementById("stockInfo");
+    const qtyHint = document.getElementById("qtyHint");
+    const cartStockMessage = document.getElementById("cartStockMessage");
+    const qtyPlus = document.getElementById("qtyPlus");
+
+    if (!stockInfo || !qtyHint || !qtyPlus) return;
+
+    stockInfo.classList.remove("low-stock", "out-of-stock");
+
+    if (!selectedSize) {
+      stockInfo.textContent = "Select a size to see stock.";
+      qtyHint.textContent = "Max: —";
+      qtyPlus.disabled = true;
+      if (cartStockMessage) cartStockMessage.textContent = "";
+      return;
+    }
+
+    const stock = getStockForSize(selectedSize);
+
+    qtyHint.textContent = "Max: " + stock;
+
+    if (stock <= 0) {
+      stockInfo.textContent = "Out of stock";
+      stockInfo.classList.add("out-of-stock");
+      qtyPlus.disabled = true;
+      qty = 1;
+      if (cartStockMessage) cartStockMessage.textContent = "This size is out of stock.";
+      return;
+    }
+
+    if (stock <= 2) {
+      stockInfo.textContent = "Only " + stock + " left";
+      stockInfo.classList.add("low-stock");
+    } else {
+      stockInfo.textContent = "In stock: " + stock;
+    }
+
+    qtyPlus.disabled = qty >= stock;
+
+    if (cartStockMessage) cartStockMessage.textContent = "";
+  }
+
+  function updateSnipcartButton() {
+    const addBtn = document.getElementById("addToCartBtn");
+    if (!addBtn) return;
+
+    const baseUrl = window.location.origin;
+    const stock = getStockForSize(selectedSize);
+
+    addBtn.setAttribute("data-item-id", PRODUCT.id);
+    addBtn.setAttribute("data-item-name", PRODUCT.name);
+    addBtn.setAttribute("data-item-price", String(PRODUCT.price));
+    addBtn.setAttribute("data-item-url", window.location.href);
+    addBtn.setAttribute("data-item-image", baseUrl + "/Slike/product_slika.jpeg");
+    addBtn.setAttribute("data-item-description", "Bad Decisions hoodie");
+    addBtn.setAttribute("data-item-quantity", String(qty));
+    addBtn.setAttribute("data-item-custom1-value", selectedSize);
+    addBtn.setAttribute("data-item-custom2-value", selectedColor);
+
+    if (!selectedSize || stock <= 0) {
+      addBtn.classList.add("disabled");
+      addBtn.setAttribute("aria-disabled", "true");
+    } else {
+      addBtn.classList.remove("disabled");
+      addBtn.removeAttribute("aria-disabled");
+    }
+  }
+
+  function updateTotalPrice() {
+    const qtyValue = document.getElementById("qtyValue");
+    const totalPrice = document.getElementById("totalPrice");
+
+    if (selectedSize) {
+      const stock = getStockForSize(selectedSize);
+      if (stock > 0 && qty > stock) {
+        qty = stock;
+      }
+    }
+
+    if (qtyValue) qtyValue.textContent = String(qty);
+    if (totalPrice) totalPrice.textContent = "€" + (PRODUCT.price * qty).toFixed(2);
+
+    updateStockInfo();
+    updateSnipcartButton();
+  }
+
+  async function initProductPage() {
+    await loadStock();
+    disableOutOfStockSizes();
+    updateStockInfo();
+    updateSnipcartButton();
+
+    const mainImage = document.getElementById("mainImage");
+    const thumbs = document.querySelectorAll(".thumb");
+    const gallery = document.querySelector(".gallery-main");
+    const sizeError = document.getElementById("sizeError");
+    const addBtn = document.getElementById("addToCartBtn");
+    const cartStockMessage = document.getElementById("cartStockMessage");
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const thumbArray = Array.from(thumbs);
+
+      if (index < 0) index = thumbArray.length - 1;
+      if (index >= thumbArray.length) index = 0;
+
+      thumbArray.forEach((t) => t.classList.remove("active"));
+      thumbArray[index].classList.add("active");
+
+      const src = thumbArray[index].dataset.src;
+      if (src && mainImage) mainImage.src = src;
+
+      currentIndex = index;
+    }
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) < 40) return;
+
+      if (diff > 0) showImage(currentIndex + 1);
+      else showImage(currentIndex - 1);
+    }
+
+    if (gallery) {
+      gallery.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      gallery.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+    }
+
+    thumbs.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        showImage(index);
+      });
+    });
+
+    document.querySelectorAll(".size-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (btn.disabled) return;
+
+        document.querySelectorAll(".size-btn").forEach((x) => x.classList.remove("active"));
+        btn.classList.add("active");
+
+        selectedSize = btn.dataset.size || "";
+        qty = 1;
+
+        const selected = document.getElementById("selectedSize");
+        if (selected) selected.textContent = selectedSize;
+
+        if (sizeError) sizeError.style.display = "none";
+        if (cartStockMessage) cartStockMessage.textContent = "";
+
+        updateTotalPrice();
+      });
+    });
+
+    document.querySelectorAll(".color-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".color-btn").forEach((x) => x.classList.remove("active"));
+        btn.classList.add("active");
+
+        selectedColor = btn.dataset.color || "Navy Blue";
+
+        const selected = document.getElementById("selectedColor");
+        if (selected) selected.textContent = selectedColor;
+
+        updateSnipcartButton();
+      });
+    });
+
+    document.getElementById("qtyMinus")?.addEventListener("click", () => {
+      qty = Math.max(1, qty - 1);
+      updateTotalPrice();
+    });
+
+    document.getElementById("qtyPlus")?.addEventListener("click", () => {
+      if (!selectedSize) return;
+
+      const stock = getStockForSize(selectedSize);
+      if (stock <= 0) return;
+
+      qty = Math.min(stock, qty + 1);
+      updateTotalPrice();
+    });
+
+    addBtn?.addEventListener("click", (e) => {
+      const stock = getStockForSize(selectedSize);
+
+      if (!selectedSize) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (sizeError) sizeError.style.display = "block";
+        if (cartStockMessage) cartStockMessage.textContent = "Please select a size.";
+        return;
+      }
+
+      if (stock <= 0) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (cartStockMessage) cartStockMessage.textContent = "This size is out of stock.";
+        return;
+      }
+
+      if (qty > stock) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        qty = stock;
+        updateTotalPrice();
+
+        if (cartStockMessage) {
+          cartStockMessage.textContent = "You can only add " + stock + " of this size.";
+        }
+      }
+    });
+
+    updateTotalPrice();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProductPage);
+  } else {
+    initProductPage();
+  }
+})();
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title data-i18n-title="homeTitle">Bad Decisions | Premium Streetwear Hoodies</title>
+    
+    <link rel="icon" type="image/png" href="Slike/Logo_bd_no_bg_black.png">
+  <meta name="description" content="Premium streetwear hoodies for those who make moves, not excuses. Crafted with quality materials, designed for the bold.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts (✅ Times New Roman - no Google font needed) -->
+  <!-- (Removed Playfair Display import) -->
+
+  <!-- ✅ HERO TEXT POPUP ANIMATION + HERO SIZE/POSITION (CSS) -->
+  <style>
+    /* ================================
+       HERO TEXT POPUP ANIMATION
+       ================================ */
+    .hero .reveal{
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 1.1s cubic-bezier(.2,.8,.2,1),
+        transform 1.1s cubic-bezier(.2,.8,.2,1),
+        filter 1.1s cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--d, 0ms);
+      will-change: opacity, transform, filter;
+    }
+    body.hero-animate .hero .reveal{
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    .hero .reveal-pop{
+      opacity: 0;
+      transform: translateY(60px) scale(.96);
+      transition:
+        opacity 1.2s cubic-bezier(.2,.8,.2,1),
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        filter 1.2s cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--d, 0ms);
+      will-change: opacity, transform, filter;
+    }
+    body.hero-animate .hero .reveal-pop{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* ================================
+       HERO TEXT POSITION + SIZE
+       ================================ */
+    .hero .container{
+      display: flex;
+      justify-content: flex-start;
+    }
+    .hero-content{
+      text-align: left;
+      max-width: 760px;
+      margin-right: auto;
+      margin-top: -100px;
+      margin-left: -12px;
+    }
+    @media (max-width: 900px){
+      .hero-content{
+        margin-left: 0;
+        margin-top: -60px;
+      }
+      .hero-description{ font-size: 16px; }
+    }
+    @media (max-width: 560px){
+      .hero-content{
+        margin-left: 0;
+        margin-top: 0;
+      }
+    }
+
+    /* ✅ FONT FIX (UPDATED to Times New Roman) */
+    .hero-title{
+      font-family: "Times New Roman", Times, serif !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.02em;
+    }
+
+    /* ================================
+       BUTTON POP (SUBTLE) + KEEP COLOR
+       ================================ */
+    .btn,
+    .btn-primary,
+    .btn-outline{
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn:hover,
+    .btn-primary:hover,
+    .btn-outline:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    }
+    .btn-primary:hover{
+      background-color: #000;
+      color: #fff;
+      border-color: #000;
+    }
+    .btn:active,
+    .btn-primary:active,
+    .btn-outline:active{
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .hero .reveal, .hero .reveal-pop{
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+      .hero-content{ transform: none !important; }
+      .btn, .btn-primary, .btn-outline{ transition: none !important; }
+      .btn:hover, .btn-primary:hover, .btn-outline:hover,
+      .btn:active, .btn-primary:active, .btn-outline:active{
+        transform: none !important;
+        box-shadow: none !important;
+      }
+    }
+
+    /* tiny helper spacing for the (removed) Add to Cart button under featured */
+    .bd-card-actions{
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+    }
+    .bd-card-actions .btn{
+      width: 100%;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+    
+   <script>
+  window.SnipcartSettings = {
+    publicApiKey: 'OWMwZmM4MDYtYTdkOC00Y2NkLWE3ZjAtOWQ4NjVlMTQ5N2JkNjM5MDYxNTYxOTI5NzI3MTcw',
+    modalStyle: "side",
+    currency: "eur"
+  };
+
+  (() => {
+    var c, d;
+    (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
+
+    var s, S;
+    (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
+
+    var l, p;
+    (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
+
+    var w, u;
+    (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
+
+    var f =
+      window.SnipcartSettings.version.includes("v3.0.0-ci") ||
+      (window.SnipcartSettings.version != "3.0" &&
+        window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+          numeric: true,
+          sensitivity: "base"
+        }) === -1);
+
+    var m = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+    window.LoadSnipcart = o;
+
+    document.readyState === "loading"
+      ? document.addEventListener("DOMContentLoaded", r)
+      : r();
+
+    function r() {
+      window.SnipcartSettings.loadStrategy
+        ? window.SnipcartSettings.loadStrategy === "on-user-interaction" &&
+          (m.forEach(t => document.addEventListener(t, o)),
+          setTimeout(o, window.SnipcartSettings.timeoutDuration))
+        : o();
+    }
+
+    var a = false;
+
+    function o() {
+      if (a) return;
+      a = true;
+
+      let t = document.getElementsByTagName("head")[0],
+          e = document.querySelector("#snipcart"),
+          i = document.querySelector(`script[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),
+          n = document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);
+
+      if (!e) {
+        e = document.createElement("div");
+        e.id = "snipcart";
+        e.setAttribute("hidden", "true");
+        document.body.appendChild(e);
+      }
+
+      v(e);
+
+      if (!i) {
+        i = document.createElement("script");
+        i.src = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`;
+        i.async = true;
+        t.appendChild(i);
+      }
+
+      if (!n) {
+        n = document.createElement("link");
+        n.rel = "stylesheet";
+        n.type = "text/css";
+        n.href = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`;
+        t.prepend(n);
+      }
+
+      m.forEach(g => document.removeEventListener(g, o));
+    }
+
+    function v(t) {
+      if (!f) return;
+
+      t.dataset.apiKey = window.SnipcartSettings.publicApiKey;
+      if (window.SnipcartSettings.addProductBehavior) {
+        t.dataset.configAddProductBehavior = window.SnipcartSettings.addProductBehavior;
+      }
+      if (window.SnipcartSettings.modalStyle) {
+        t.dataset.configModalStyle = window.SnipcartSettings.modalStyle;
+      }
+      if (window.SnipcartSettings.currency) {
+        t.dataset.currency = window.SnipcartSettings.currency;
+      }
+      if (window.SnipcartSettings.templatesUrl) {
+        t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl;
+      }
+    }
+  })();
+</script>
+    
+  <!-- toast (your CSS already styles .cart-toast) -->
+  <div id="cart-toast" class="cart-toast" role="status" aria-live="polite"></div>
+
+    
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+
+      <!-- Logo -->
+      <a href="index.html" class="logo" aria-label="Bad Decisions Home">
+        <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link active" data-i18n="navHome">Home</a>
+        <a href="shop.html" class="nav-link" data-i18n="navShop">Shop</a>
+        <a href="about.html" class="nav-link" data-i18n="navAbout">About</a>
+        <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <!-- Right side actions -->
+      <div class="nav-actions">
+
+        <!-- Language dropdown (EN / SL) -->
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
+
+            <!-- Globe icon -->
+            <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3c3 3 3 15 0 18"></path>
+              <path d="M12 3c-3 3-3 15 0 18"></path>
+            </svg>
+
+            <!-- Current language code under globe (GB / SI) -->
+            <span id="currentLang" class="lang-code-display">GB</span>
+
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu" aria-label="Language menu">
+            <button type="button" class="lang-item" data-lang="en" role="menuitem">
+              <span class="lang-code">GB</span>
+              <span class="lang-name" data-i18n="langEnglish">English</span>
+              <img class="lang-item-flag" src="flags/gb.png" alt="">
+            </button>
+
+            <button type="button" class="lang-item" data-lang="sl" role="menuitem">
+              <span class="lang-code">SI</span>
+              <span class="lang-name" data-i18n="langSlovenian">Slovenščina</span>
+              <img class="lang-item-flag" src="flags/si.png" alt="">
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="menu-toggle" id="menuToggle" type="button"
+  aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+  <span class="line line-1"></span>
+  <span class="line line-2"></span>
+</button>
+
+        <!-- Cart -->
+        <a href="#" class="bd-cart snipcart-checkout" aria-label="Open cart">
+  <img src="Slike/cart.png" alt="Cart" class="bd-cart-icon">
+  <span class="bd-cart-badge snipcart-items-count">0</span>
+</a>
+
+      </div>
+
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="mobile-menu-inner">
+    <a href="index.html" class="mobile-link active" data-i18n="navHome">Home</a>
+    <a href="shop.html" class="mobile-link" data-i18n="navShop">Shop</a>
+    <a href="about.html" class="mobile-link" data-i18n="navAbout">About</a>
+    <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
+  </div>
+</nav>
+</header>
+    
+    
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="Slike/naslikava.jpg" alt="Hero background">
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-subtitle reveal" style="--d:0ms;" data-i18n="heroSubtitle">PREMIUM STREETWEAR</p>
+
+        <h1 class="hero-title">
+          <span class="reveal-pop" style="--d:300ms; display:block;">BAD</span>
+          <span class="reveal-pop" style="--d:600ms; display:block;">DECISIONS</span>
+        </h1>
+
+        <p class="hero-description reveal" style="--d:900ms;" data-i18n="heroDescription">
+          Hoodies for those who make moves, not excuses. Premium quality. Uncompromising style.
+        </p>
+
+        <div class="hero-buttons reveal" style="--d:1200ms;">
+          <a href="shop.html" class="btn btn-primary" data-i18n="shopNow">Shop Now</a>
+          <a href="about.html" class="btn btn-outline" data-i18n="ourStory">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    
+    
+  <style>
+  /* ===============================
+     HERO FULL SCREEN OVERRIDE
+     =============================== */
+  .hero{
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+    padding-top: 80px !important;
+  }
+
+  .hero-bg{
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hero-bg img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  .hero .container{
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .bd-featured{
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+  }
+
+  html, body{
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+ /* =========================
+   HERO MOBILE
+========================= */
+@media (max-width: 768px){
+
+  .hero{
+    height: 75vh !important;
+    min-height: 75vh !important;
+  }
+
+  .hero-bg img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  /* Move text slightly UP */
+  .hero-content{
+    margin-left: 0 !important;
+    margin-top: -40px !important;
+    padding: 0 20px !important;
+    max-width: 100% !important;
+    color: #fff !important;
+  }
+
+  .hero-description{
+    display: none;
+  }
+
+  .hero-subtitle,
+  .hero-title,
+  .hero-title span{
+    color: #fff !important;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  }
+
+  .hero-title{
+    font-size: clamp(2.6rem, 11vw, 3.8rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  .hero-buttons{
+    gap: 12px !important;
+  }
+
+  .btn-outline{
+    color: #fff !important;
+    border: 2px solid #fff !important;
+    background: transparent !important;
+  }
+
+}
+</style>
+    
+    
+
+  <!-- Featured Hoodies -->
+  <section class="bd-featured">
+    <div class="container">
+      <div class="bd-featured-top">
+        <div>
+          <p class="bd-featured-kicker" data-i18n="featuredKicker">OUR MOST WANTED PIECE</p>
+          <h2 class="bd-featured-title" data-i18n="featuredTitle">Featured Hoodie</h2>
+        </div>
+        <a class="bd-featured-link" href="shop.html" data-i18n="viewAllHoodies">VIEW ALL HOODIES →</a>
+      </div>
+
+      <div class="bd-grid">
+        <div class="bd-card">
+          <a class="bd-card-media bd-slider" href="product.html" data-index="0" aria-label="Open product">
+            <div class="bd-track">
+              <div class="bd-slide"><img src="Slike/product_slika.jpeg"  alt="Bad decisions hoodie image 1"></div>
+              <div class="bd-slide"><img src="Slike/product_slika2.JPG"  alt="Bad decisions hoodie image 2"></div>
+              <div class="bd-slide"><img src="Slike/product_slika3.jpeg" alt="Bad decisions hoodie image 3"></div>
+              <div class="bd-slide"><img src="Slike/product_slika4.png"  alt="Bad decisions hoodie image 4"></div>
+            </div>
+
+            <button class="bd-arrow bd-arrow-left" type="button" aria-label="Previous image">←</button>
+            <button class="bd-arrow bd-arrow-right" type="button" aria-label="Next image">→</button>
+          </a>
+
+          <div class="bd-card-meta">
+            <div class="bd-card-name" data-i18n="hoodieName">Bad decisions hoodie</div>
+            <div class="bd-card-price">€49.99</div>
+
+            <!-- ✅ REMOVED: Add to Cart button under the hoodie -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .bd-featured{
+        padding: 16px 0 72px;
+        background:#fff;
+      }
+
+      .bd-featured-top{
+        display:flex;
+        align-items:flex-end;
+        justify-content:space-between;
+        gap:24px;
+        margin-bottom:28px;
+      }
+
+      .bd-featured-kicker{
+        font-family: "Times New Roman", Times, serif;
+        font-size:12px;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        color:#9aa0a6;
+        margin:0 0 8px;
+      }
+
+      .bd-featured-title{
+        font-family: "Times New Roman", Times, serif;
+        font-size:40px;
+        line-height:1.1;
+        margin:0;
+        color:#0b0b0c;
+        font-weight:700;
+      }
+
+      .bd-featured-link{
+        font-family: "Times New Roman", Times, serif;
+        font-size:12px;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        color:#0b0b0c;
+        text-decoration:none;
+        white-space:nowrap;
+        opacity:.85;
+        transition:opacity .2s ease;
+      }
+      .bd-featured-link:hover{ opacity:1; }
+
+      .bd-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        justify-items:start;
+        margin-left:-80px;
+      }
+
+      .bd-card{
+        text-decoration:none;
+        color:inherit;
+        display:block;
+        width:min(420px, 100%);
+      }
+
+      .bd-card-media{
+        position:relative;
+        overflow:hidden;
+        background:#f4f4f5;
+        width:100%;
+        aspect-ratio:1/1;
+        border-radius:12px;
+        display:block;
+      }
+
+      .bd-track{
+        height:100%;
+        width:100%;
+        display:flex;
+        transform: translateX(calc(var(--i, 0) * -100%));
+        transition: none;
+        will-change: transform;
+      }
+
+      .bd-slider.is-animating .bd-track{
+        transition: transform .45s cubic-bezier(.2,.8,.2,1);
+      }
+
+      .bd-slider.is-preview .bd-track{
+        transition: none !important;
+      }
+
+      .bd-slide{ flex:0 0 100%; height:100%; }
+      .bd-slide img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        user-select:none;
+        pointer-events:none;
+      }
+
+      .bd-arrow{
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        width:44px;
+        height:44px;
+        border-radius:999px;
+        border:1px solid rgba(0,0,0,.10);
+        background: rgba(255,255,255,.90);
+        color:#111;
+        font-size:18px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        opacity:0;
+        transition: opacity .2s ease, transform .2s ease;
+        z-index:2;
+      }
+      .bd-card-media:hover .bd-arrow{ opacity:1; }
+      .bd-arrow-left{ left:14px; }
+      .bd-arrow-right{ right:14px; }
+      .bd-arrow:active{ transform:translateY(-50%) scale(.98); }
+
+      .bd-card-meta{ padding-top:14px; }
+      .bd-card-name{
+        font-family: "Times New Roman", Times, serif;
+        font-size:16px;
+        color:#111;
+        margin-bottom:6px;
+        opacity:.95;
+      }
+      .bd-card-price{
+        font-family: "Times New Roman", Times, serif;
+        font-size:15px;
+        font-weight:700;
+        color:#111;
+      }
+
+      @media (max-width: 900px){
+        .bd-grid{ margin-left:-24px; }
+      }
+        
+        
+      @media (max-width:560px){
+
+  .bd-featured-top{
+    padding: 0 6px;
+  }
+
+  /* Left texts */
+  .bd-featured-kicker{
+    white-space: nowrap;
+    font-size: 11px;
+  }
+
+  .bd-featured-title{
+    white-space: nowrap;
+    font-size: 26px;
+  }
+
+  /* Right link */
+  .bd-featured-link{
+    font-size: 10px;
+    letter-spacing: .12em;
+    margin-right: 2px;
+  }
+
+  .bd-grid{
+    margin-left:0;
+  }
+
+  .bd-card{
+    width:100%;
+  }
+
+}
+
+    </style>
+
+    <script>
+      (function(){
+        const sliders = document.querySelectorAll(".bd-slider");
+
+        sliders.forEach((slider) => {
+          const track  = slider.querySelector(".bd-track");
+          const slides = slider.querySelectorAll(".bd-slide");
+          const btnPrev = slider.querySelector(".bd-arrow-left");
+          const btnNext = slider.querySelector(".bd-arrow-right");
+          if (!track || slides.length === 0) return;
+
+          const count = slides.length;
+          const norm = (i) => ((i % count) + count) % count;
+
+          let current = (() => {
+            const n = parseInt(slider.dataset.index || "0", 10);
+            return Number.isFinite(n) ? norm(n) : 0;
+          })();
+
+          const render = (i) => track.style.setProperty("--i", i);
+          const stopLink = (e) => { e.preventDefault(); e.stopPropagation(); };
+
+          const goTo = (i) => {
+            current = norm(i);
+            slider.dataset.index = String(current);
+
+            slider.classList.add("is-animating");
+            slider.classList.remove("is-preview");
+            render(current);
+
+            const onEnd = (ev) => {
+              if (ev.propertyName !== "transform") return;
+              slider.classList.remove("is-animating");
+              track.removeEventListener("transitionend", onEnd);
+            };
+            track.addEventListener("transitionend", onEnd);
+          };
+
+          btnPrev.addEventListener("click", (e) => { stopLink(e); goTo(current - 1); });
+          btnNext.addEventListener("click", (e) => { stopLink(e); goTo(current + 1); });
+
+          slider.addEventListener("mouseenter", () => {
+            slider.classList.add("is-preview");
+            render(norm(current + 1));
+          });
+
+          slider.addEventListener("mouseleave", () => {
+            slider.classList.add("is-preview");
+            render(current);
+            slider.classList.remove("is-preview");
+          });
+
+          slider.classList.remove("is-animating");
+          slider.classList.remove("is-preview");
+          render(current);
+        });
+      })();
+    </script>
+  </section>
+
+  <!-- Brand Mission -->
+  <section class="mission" id="about">
+    <div class="container">
+      <div class="mission-content">
+        <p class="section-subtitle" data-i18n="missionSubtitle">OUR PHILOSOPHY</p>
+        <h2 class="section-title" data-i18n="missionTitle">Built Different</h2>
+        <p class="mission-text" data-i18n="missionText">
+          We don't make hoodies. We craft statements. Every stitch, every fabric choice, every design decision is made with intention. Bad Decisions isn't just a brand—it's a mindset. For those who take risks, break rules, and refuse to be ordinary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2 class="newsletter-title" data-i18n="newsletterTitle">Join the Movement</h2>
+        <p class="newsletter-text" data-i18n="newsletterText">Be the first to know about new drops, exclusive offers, and bad decisions worth making.</p>
+        <form class="newsletter-form" id="newsletterForm">
+  <input
+    type="email"
+    id="newsletterEmail"
+    name="email"
+    placeholder="Enter your email"
+    data-i18n-placeholder="newsletterPlaceholder"
+    required
+  >
+  <button type="submit" class="btn-subscribe" data-i18n="subscribe">
+    Subscribe
+  </button>
+</form>
+      </div>
+    </div>
+  </section>
+
+  <style>
+      
+    .newsletter-form input::placeholder{
+  color:#9ca3af;
+}
+    .newsletter {
+      padding: 100px 0;
+      background: #ffffff;
+    }
+    .newsletter-content {
+      background: #000;
+      border-radius: 20px;
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .newsletter-title {
+      color: #fff;
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .newsletter-text {
+      color: #9ca3af;
+      margin-bottom: 30px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .newsletter-form input {
+      background: #111;
+      border: 1px solid #333;
+      padding: 14px 18px;
+      border-radius: 10px;
+      color: #fff;
+      min-width: 260px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .newsletter-form button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .newsletter-form button:hover {
+      background: #e5e5e5;
+    }
+  </style>
+
+  <!-- Footer -->
+  <footer class="bd-footer">
+    <div class="container bd-footer__container">
+      <div class="bd-footer__grid">
+        <div class="bd-footer__brand">
+          <a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <p class="bd-footer__tagline" data-i18n-html="footerTagline">
+            Premium hoodies for those who make<br>
+            moves, not excuses.
+          </p>
+        </div>
+
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerShop">SHOP</h4>
+          <ul class="bd-footer__links">
+            <li><a href="shop.html" data-i18n="footerAllHoodies">All Hoodies</a></li>
+            <li><a href="shop.html" data-i18n="footerOversized">Oversized hoodie</a></li>
+          </ul>
+        </div>
+
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerCompany">COMPANY</h4>
+          <ul class="bd-footer__links">
+            <li><a href="about.html" data-i18n="footerAboutUs">About Us</a></li>
+            <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+            <li><a href="shipping.html" data-i18n="footerShipping">Shipping</a></li>
+          </ul>
+        </div>
+
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerLegal">LEGAL</h4>
+          <ul class="bd-footer__links">
+            <li><a href="terms.html" data-i18n="footerTerms">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a></li>
+            <li><a href="cookie.html" data-i18n="footerCookie">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bd-footer__bottom">
+        <p class="bd-footer__copy">
+          &copy; <span id="bdFooterYear">2026</span> <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
+        </p>
+
+        <div class="bd-footer__social">
+          <a class="bd-footer__icon"
+             href="https://www.instagram.com/bad.decisions_official/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
+
+          <a class="bd-footer__icon"
+             href="https://www.tiktok.com/@bd.bad.decisions"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M21 8.5a6.5 6.5 0 0 1-4.6-1.9v7.4a5.5 5.5 0 1 1-4.8-5.5v3a2.5 2.5 0 1 0 1.8 2.4V2h3a6.5 6.5 0 0 0 4.6 3v3.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+      <p data-i18n="cookieText">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+      <div class="cookie-buttons">
+        <button class="btn btn-small btn-outline" id="cookieDecline" data-i18n="cookieDecline">Decline</button>
+        <button class="btn btn-small btn-primary" id="cookieAccept" data-i18n="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ migrate old "cart" -> new "bd_cart" (ONLY ONCE) -->
+  <script>
+    (function () {
+      const OLD_KEY = "cart";
+      const NEW_KEY = "bd_cart";
+
+      const oldRaw = localStorage.getItem(OLD_KEY);
+      const newRaw = localStorage.getItem(NEW_KEY);
+
+      if (!oldRaw || newRaw) return;
+
+      try {
+        const oldCart = JSON.parse(oldRaw) || [];
+        const migrated = oldCart.map((item) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          qty: item.qty ?? item.quantity ?? 1,
+        }));
+
+        localStorage.setItem(NEW_KEY, JSON.stringify(migrated));
+        localStorage.removeItem(OLD_KEY);
+      } catch {}
+    })();
+  </script>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+
+  <!-- ✅ HERO TEXT POPUP ANIMATION (JS) -->
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("hero-animate");
+    });
+  </script>
+    
+</body>
+</html>
