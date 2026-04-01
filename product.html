@@ -913,7 +913,7 @@
 
   async function loadStock() {
     try {
-      const res = await fetch("/api/product-stock");
+      const res = await fetch("https://bad-decisions-stock-api.onrender.com/api/product-stock");
       const data = await res.json();
       stockBySize = data.stockBySize || {};
     } catch (err) {
