@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8DDZZEREGT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8GDDZEREGT');
+</script>
+    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n-title="aboutTitle">About Us - Bad Decisions</title>
@@ -123,13 +134,13 @@
     <nav class="nav">
 
       <!-- Logo -->
-      <a href="index.html" class="logo" aria-label="Bad Decisions Home">
+      <a href="home.html" class="logo" aria-label="Bad Decisions Home">
         <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
       </a>
 
       <!-- Desktop Navigation -->
       <nav class="nav-desktop" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
+        <a href="home.html" class="nav-link" data-i18n="navHome">Home</a>
         <a href="shop.html" class="nav-link" data-i18n="navShop">Shop</a>
         <a href="about.html" class="nav-link active" data-i18n="navAbout">About</a>
         <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
@@ -191,7 +202,7 @@
   <!-- Mobile Navigation Menu -->
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
   <div class="mobile-menu-inner">
-    <a href="index.html" class="mobile-link" data-i18n="navHome">Home</a>
+    <a href="home.html" class="mobile-link" data-i18n="navHome">Home</a>
     <a href="shop.html" class="mobile-link" data-i18n="navShop">Shop</a>
     <a href="about.html" class="mobile-link active" data-i18n="navAbout">About</a>
     <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
@@ -264,7 +275,7 @@
 
         <!-- Brand -->
         <div class="bd-footer__brand">
-          <a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <a href="home.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
           <p class="bd-footer__tagline" data-i18n-html="footerTagline">
             Premium hoodies for those who make<br>
             moves, not excuses.
@@ -325,7 +336,7 @@
 
           <!-- TikTok -->
           <a class="bd-footer__icon"
-             href="https://www.tiktok.com/@bd.bad.decisions"
+             href="https://www.tiktok.com/@bad.decisions_official"
              target="_blank"
              rel="noopener noreferrer"
              aria-label="TikTok">
@@ -372,6 +383,85 @@
 
   <script src="translations.js"></script>
   <script src="script.js"></script>
+
+<!-- ✅ Snipcart tracking AFTER -->
+   <script>
+  document.addEventListener("snipcart.ready", function () {
+    try {
+      function getSelectedQuantity() {
+        const qtyInput =
+          document.querySelector("#qty") ||
+          document.querySelector("[name='quantity']") ||
+          document.querySelector(".qty-input") ||
+          document.querySelector(".quantity-input");
+
+        return Number(qtyInput?.value || 1);
+      }
+
+      Snipcart.events.on("item.added", function (cartItem) {
+        const quantity = getSelectedQuantity();
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "add_to_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("item.removed", function (cartItem) {
+        const quantity = Number(cartItem.quantity || cartItem.qty || 1);
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "remove_from_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("cart.opened", function () {
+        if (typeof gtag === "function") {
+          gtag("event", "view_cart");
+        }
+      });
+
+      let checkoutTracked = false;
+
+      function trackCheckoutByUrl() {
+        if (window.location.hash.includes("checkout") && !checkoutTracked) {
+          checkoutTracked = true;
+
+          if (typeof gtag === "function") {
+            gtag("event", "begin_checkout");
+          }
+        }
+      }
+
+      window.addEventListener("hashchange", trackCheckoutByUrl);
+      trackCheckoutByUrl();
+
+    } catch (error) {
+      console.log("GA Snipcart tracking error:", error);
+    }
+  });
+</script>
     
 </body>
 </html>

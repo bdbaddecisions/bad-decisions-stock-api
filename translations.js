@@ -138,11 +138,11 @@ const translations = {
     productDescription: "Our signature oversized silhouette. Crafted from heavyweight French terry for that perfect drape. The ultimate statement piece for those who refuse to blend in. Pre-washed for a lived-in feel from day one.",
 
     productFabricLabel: "Fabric",
-    productFabricValue: "350gsm",
+    productFabricValue: "380gsm",
     productFitLabel: "Fit",
     productFitValue: "Oversized",
     productMaterialLabel: "Material",
-    productMaterialValue: "100% cotton",
+    productMaterialValue: "85% Cotton<br>15% polyestr",
 
     productQuantity: "Quantity",
     productAddToCart: "Add to Cart",
@@ -476,6 +476,84 @@ const translations = {
     privacySection14Title: "14. Contact Us",
     privacySection14Text1: "If you have questions about this Privacy Policy or want to exercise your data protection rights, please contact us at:",
     privacySection14Text2: "<strong>Bad Decisions</strong><br>Email: <a href=\"mailto:bd.bad.decisions@gmail.com\">bd.bad.decisions@gmail.com</a><br>Address: Mala vas 105a<br>",  
+    
+    productBreadcrumbName: "Classic Oversized Hoodie",
+productGalleryBadge: "New Arrival",
+productKicker: "Bad Decisions Essentials",
+productPageName: "Classic Oversized Hoodie",
+productRatingReviews: "reviews",
+productRatingViewAll: "View all",
+productShortDescription: "Premium oversized hoodie crafted from heavyweight French terry cotton. Designed for a relaxed fit with dropped shoulders and a spacious hood.",
+
+productMaterialLabel: "Material",
+productMaterialValue: "85% Cotton<br>15% polyestr",
+productWeightLabel: "Weight",
+productWeightValue: "380 GSM",
+productFitLabel: "Fit",
+productFitValue: "Oversized",
+
+productColor: "Color",
+productSize: "Size",
+productSelectSize: "Select size",
+productPleaseSelectSize: "Please select a size.",
+productLoadingStock: "Loading stock...",
+productStockUnavailable: "Stock temporarily unavailable.",
+productSelectSizeStock: "Select a size to see stock.",
+productMax: "Max:",
+productOutOfStock: "Out of stock",
+productThisSizeOut: "This size is out of stock.",
+productOnlyLeft: "Only {stock} left",
+productInStock: "In stock: {stock}",
+productStockLoadingWait: "Stock is still loading. Please wait a moment and try again.",
+productOnlyAddStock: "You can only add {stock} of this size.",
+
+notifyTitle: "Out of stock in this size?",
+notifyText: "Enter your email and we'll let you know when it's back.",
+notifyPlaceholder: "Enter your email",
+notifyButton: "Notify me",
+notifySelectSizeFirst: "Please select a size first.",
+notifyEnterEmail: "Please enter your email.",
+notifyValidEmail: "Please enter a valid email address.",
+notifySending: "Sending...",
+notifySuccess: "✓ Thanks! We'll notify you when size {size} is back in stock.",
+notifyError: "There was an error. Please try again.",    
+     
+     productBreadcrumbName: "Classic Oversized Hoodie",
+productGalleryBadge: "New Arrival",
+productKicker: "Bad Decisions Essentials",
+productPageName: "Classic Oversized Hoodie",
+productRatingViewAll: "View all",
+productShortDescription: "Premium oversized hoodie crafted from heavyweight French terry cotton. Designed for a relaxed fit with dropped shoulders and a spacious hood.",
+
+productWeightLabel: "Weight",
+productWeightValue: "380 GSM",
+
+productColor: "Color",
+productSize: "Size",
+productSelectSize: "Select size",
+productPleaseSelectSize: "Please select a size.",
+productLoadingStock: "Loading stock...",
+productStockUnavailable: "Stock temporarily unavailable.",
+productSelectSizeStock: "Select a size to see stock.",
+productMax: "Max:",
+productOutOfStock: "Out of stock",
+productThisSizeOut: "This size is out of stock.",
+productOnlyLeft: "Only {stock} left",
+productInStock: "In stock: {stock}",
+productStockLoadingWait: "Stock is still loading. Please wait a moment and try again.",
+productOnlyAddStock: "You can only add {stock} of this size.",
+
+notifyTitle: "Out of stock in this size?",
+notifyText: "Enter your email and we'll let you know when it's back.",
+notifyPlaceholder: "Enter your email",
+notifyButton: "Notify me",
+notifySelectSizeFirst: "Please select a size first.",
+notifyEnterEmail: "Please enter your email.",
+notifyValidEmail: "Please enter a valid email address.",
+notifySending: "Sending...",
+notifySuccess: "✓ Thanks! We'll notify you when size {size} is back in stock.",
+notifyError: "There was an error. Please try again.", 
+      
       
     // language names
     langEnglish: "English",
@@ -617,11 +695,11 @@ const translations = {
     productDescription: "Naša prepoznavna oversized silhueta. Izdelana iz težkega french terry bombaža za popoln padec. Popoln statement kos za tiste, ki se nočejo zliti z množico. Predprana za občutek nošenja že od prvega dne.",
 
     productFabricLabel: "Blago",
-    productFabricValue: "350gsm",
+    productFabricValue: "380gsm",
     productFitLabel: "Kroj",
     productFitValue: "Oversized",
     productMaterialLabel: "Material",
-    productMaterialValue: "100% bombaž",
+    productMaterialValue: "85% bombaž<br>15% poliester",
 
     productQuantity: "Količina",
     productAddToCart: "Dodaj v košarico",
@@ -954,7 +1032,86 @@ const translations = {
 
     privacySection14Title: "14. Kontaktirajte nas",
     privacySection14Text1: "Če imate vprašanja o tem Pravilniku o zasebnosti ali želite uveljavljati svoje pravice glede varstva podatkov, nas kontaktirajte na:",
-    privacySection14Text2: "<strong>Bad Decisions</strong><br>Email: <a href=\"mailto:bd.bad.decisions@gmail.com\">bd.bad.decisions@gmail.com</a><br>Naslov: Mala vas 105a<br>",  
+    privacySection14Text2: "<strong>Bad Decisions</strong><br>Email: <a href=\"mailto:bd.bad.decisions@gmail.com\">bd.bad.decisions@gmail.com</a><br>Naslov: Mala vas 105a<br>", 
+      
+    productBreadcrumbName: "Klasična oversized jopica",
+productGalleryBadge: "Novo",
+productKicker: "Bad Decisions Essentials",
+productPageName: "Klasična oversized jopica",
+productRatingReviews: "mnenj",
+productRatingViewAll: "Poglej vse",
+productShortDescription: "Premium oversized jopica iz težkega french terry bombaža. Zasnovana za sproščen kroj s spuščenimi rameni in prostorno kapuco.",
+
+productMaterialLabel: "Material",
+productMaterialValue: "85% bombaž<br>15% poliester",
+productWeightLabel: "Teža",
+productWeightValue: "380 GSM",
+productFitLabel: "Kroj",
+productFitValue: "Oversized",
+
+productColor: "Barva",
+productSize: "Velikost",
+productSelectSize: "Izberi velikost",
+productPleaseSelectSize: "Prosimo, izberi velikost.",
+productLoadingStock: "Nalagam zalogo...",
+productStockUnavailable: "Zaloga trenutno ni na voljo.",
+productSelectSizeStock: "Izberi velikost za prikaz zaloge.",
+productMax: "Maks:",
+productOutOfStock: "Ni na zalogi",
+productThisSizeOut: "Ta velikost ni na zalogi.",
+productOnlyLeft: "Samo še {stock} na voljo",
+productInStock: "Na zalogi: {stock}",
+productStockLoadingWait: "Zaloga se še nalaga. Počakaj trenutek in poskusi znova.",
+productOnlyAddStock: "Dodaš lahko samo {stock} kosov te velikosti.",
+
+notifyTitle: "Ta velikost ni na zalogi?",
+notifyText: "Vnesi svoj e-mail in obvestili te bomo, ko bo ponovno na voljo.",
+notifyPlaceholder: "Vnesi svoj e-mail",
+notifyButton: "Obvesti me",
+notifySelectSizeFirst: "Najprej izberi velikost.",
+notifyEnterEmail: "Prosimo, vnesi svoj e-mail.",
+notifyValidEmail: "Prosimo, vnesi veljaven e-mail naslov.",
+notifySending: "Pošiljam...",
+notifySuccess: "✓ Hvala! Obvestili te bomo, ko bo velikost {size} spet na zalogi.",
+notifyError: "Prišlo je do napake. Poskusi znova.",  
+      
+   
+    productBreadcrumbName: "Klasična oversized jopica",
+productGalleryBadge: "Novo",
+productKicker: "Bad Decisions Essentials",
+productPageName: "Klasična oversized jopica",
+productRatingViewAll: "Poglej vse",
+productShortDescription: "Premium oversized jopica iz težkega french terry bombaža. Zasnovana za sproščen kroj s spuščenimi rameni in prostorno kapuco.",
+
+productWeightLabel: "Teža",
+productWeightValue: "380 GSM",
+
+productColor: "Barva",
+productSize: "Velikost",
+productSelectSize: "Izberi velikost",
+productPleaseSelectSize: "Prosimo, izberi velikost.",
+productLoadingStock: "Nalagam zalogo...",
+productStockUnavailable: "Zaloga trenutno ni na voljo.",
+productSelectSizeStock: "Izberi velikost za prikaz zaloge.",
+productMax: "Maks:",
+productOutOfStock: "Ni na zalogi",
+productThisSizeOut: "Ta velikost ni na zalogi.",
+productOnlyLeft: "Samo še {stock} na voljo",
+productInStock: "Na zalogi: {stock}",
+productStockLoadingWait: "Zaloga se še nalaga. Počakaj trenutek in poskusi znova.",
+productOnlyAddStock: "Dodaš lahko samo {stock} kosov te velikosti.",
+
+notifyTitle: "Ta velikost ni na zalogi?",
+notifyText: "Vnesi svoj e-mail in obvestili te bomo, ko bo ponovno na voljo.",
+notifyPlaceholder: "Vnesi svoj e-mail",
+notifyButton: "Obvesti me",
+notifySelectSizeFirst: "Najprej izberi velikost.",
+notifyEnterEmail: "Prosimo, vnesi svoj e-mail.",
+notifyValidEmail: "Prosimo, vnesi veljaven e-mail naslov.",
+notifySending: "Pošiljam...",
+notifySuccess: "✓ Hvala! Obvestili te bomo, ko bo velikost {size} spet na zalogi.",
+notifyError: "Prišlo je do napake. Poskusi znova.",  
+      
       
     // language names
     langEnglish: "English",
@@ -984,9 +1141,9 @@ function applyTranslations() {
   document.documentElement.lang = lang === "sl" ? "sl" : "en";
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.dataset.i18n;
-    el.textContent = t(key);
-  });
+  const key = el.dataset.i18n;
+  el.innerHTML = t(key);
+});
 
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.dataset.i18nHtml;

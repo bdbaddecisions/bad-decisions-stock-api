@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8DDZZEREGT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8GDDZEREGT');
+</script>
+    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,12 +42,12 @@
 <div class="container">
 <nav class="nav">
 
-<a href="index.html" class="logo" aria-label="Bad Decisions Home">
+<a href="home.html" class="logo" aria-label="Bad Decisions Home">
 <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
 </a>
 
 <nav class="nav-desktop" aria-label="Primary navigation">
-<a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
+<a href="home.html" class="nav-link" data-i18n="navHome">Home</a>
 <a href="shop.html" class="nav-link" data-i18n="navShop">Shop</a>
 <a href="about.html" class="nav-link" data-i18n="navAbout">About</a>
 <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
@@ -89,7 +100,7 @@
 
 <nav class="mobile-menu" id="mobileMenu">
 <div class="mobile-menu-inner">
-<a href="index.html" class="mobile-link" data-i18n="navHome">Home</a>
+<a href="home.html" class="mobile-link" data-i18n="navHome">Home</a>
 <a href="shop.html" class="mobile-link" data-i18n="navShop">Shop</a>
 <a href="about.html" class="mobile-link" data-i18n="navAbout">About</a>
 <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
@@ -282,62 +293,160 @@ Address: Mala vas 105a
 </section>
 
 <!-- Footer -->
-<footer class="bd-footer">
+  <footer class="bd-footer">
+    <div class="container bd-footer__container">
+      <div class="bd-footer__grid">
 
-<div class="container bd-footer__container">
+        <div class="bd-footer__brand">
+          <a href="home.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <p class="bd-footer__tagline" data-i18n-html="footerTagline">
+            Premium hoodies for those who make<br>
+            moves, not excuses.
+          </p>
+        </div>
 
-<div class="bd-footer__grid">
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerShop">SHOP</h4>
+          <ul class="bd-footer__links">
+            <li><a href="shop.html" data-i18n="footerAllHoodies">All Hoodies</a></li>
+            <li><a href="shop.html" data-i18n="footerOversized">Oversized hoodie</a></li>
+          </ul>
+        </div>
 
-<div class="bd-footer__brand">
-<a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
-<p class="bd-footer__tagline" data-i18n-html="footerTagline">
-Premium hoodies for those who make<br>
-moves, not excuses.
-</p>
-</div>
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerCompany">COMPANY</h4>
+          <ul class="bd-footer__links">
+            <li><a href="about.html" data-i18n="footerAboutUs">About Us</a></li>
+            <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+            <li><a href="shipping.html" data-i18n="footerShipping">Shipping</a></li>
+          </ul>
+        </div>
 
-<div class="bd-footer__col">
-<h4 class="bd-footer__title" data-i18n="footerShop">SHOP</h4>
-<ul class="bd-footer__links">
-<li><a href="shop.html" data-i18n="footerAllHoodies">All Hoodies</a></li>
-<li><a href="shop.html" data-i18n="footerOversized">Oversized hoodie</a></li>
-</ul>
-</div>
+        <div class="bd-footer__col">
+          <h4 class="bd-footer__title" data-i18n="footerLegal">LEGAL</h4>
+          <ul class="bd-footer__links">
+            <li><a href="terms.html" data-i18n="footerTerms">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a></li>
+            <li><a href="cookie.html" data-i18n="footerCookie">Cookie Policy</a></li>
+          </ul>
+        </div>
 
-<div class="bd-footer__col">
-<h4 class="bd-footer__title" data-i18n="footerCompany">COMPANY</h4>
-<ul class="bd-footer__links">
-<li><a href="about.html" data-i18n="footerAboutUs">About Us</a></li>
-<li><a href="contact.html" data-i18n="navContact">Contact</a></li>
-<li><a href="shipping.html" data-i18n="footerShipping">Shipping</a></li>
-</ul>
-</div>
+      </div>
 
-<div class="bd-footer__col">
-<h4 class="bd-footer__title" data-i18n="footerLegal">LEGAL</h4>
-<ul class="bd-footer__links">
-<li><a href="terms.html" data-i18n="footerTerms">Terms & Conditions</a></li>
-<li><a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a></li>
-<li><a href="cookie.html" data-i18n="footerCookie">Cookie Policy</a></li>
-</ul>
-</div>
+      <div class="bd-footer__bottom">
+        <p class="bd-footer__copy">
+          &copy; <span id="bdFooterYear">2026</span> <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
+        </p>
 
-</div>
+        <div class="bd-footer__social">
+          <a class="bd-footer__icon"
+             href="https://www.instagram.com/bad.decisions_official/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
 
-<div class="bd-footer__bottom">
+          <a class="bd-footer__icon"
+             href="https://www.tiktok.com/@bad.decisions_official"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M21 8.5a6.5 6.5 0 0 1-4.6-1.9v7.4a5.5 5.5 0 1 1-4.8-5.5v3a2.5 2.5 0 1 0 1.8 2.4V2h3a6.5 6.5 0 0 0 4.6 3v3.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<p class="bd-footer__copy">
-&copy; <span id="bdFooterYear">2026</span> <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
-</p>
-
-</div>
-
-</div>
-</footer>
 
 <script src="translations.js"></script>
 <script src="script.js"></script>
 
+  <!-- ✅ Snipcart tracking AFTER -->
+   <script>
+  document.addEventListener("snipcart.ready", function () {
+    try {
+      function getSelectedQuantity() {
+        const qtyInput =
+          document.querySelector("#qty") ||
+          document.querySelector("[name='quantity']") ||
+          document.querySelector(".qty-input") ||
+          document.querySelector(".quantity-input");
+
+        return Number(qtyInput?.value || 1);
+      }
+
+      Snipcart.events.on("item.added", function (cartItem) {
+        const quantity = getSelectedQuantity();
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "add_to_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("item.removed", function (cartItem) {
+        const quantity = Number(cartItem.quantity || cartItem.qty || 1);
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "remove_from_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("cart.opened", function () {
+        if (typeof gtag === "function") {
+          gtag("event", "view_cart");
+        }
+      });
+
+      let checkoutTracked = false;
+
+      function trackCheckoutByUrl() {
+        if (window.location.hash.includes("checkout") && !checkoutTracked) {
+          checkoutTracked = true;
+
+          if (typeof gtag === "function") {
+            gtag("event", "begin_checkout");
+          }
+        }
+      }
+
+      window.addEventListener("hashchange", trackCheckoutByUrl);
+      trackCheckoutByUrl();
+
+    } catch (error) {
+      console.log("GA Snipcart tracking error:", error);
+    }
+  });
+</script>
     
 </body>
 </html>

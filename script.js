@@ -160,8 +160,6 @@ function initNewsletterForm() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = form.querySelector('input[type="email"]')?.value || "";
-    alert(`${tr("newsletterThanks", "Thanks for subscribing with:")} ${email}`);
-    form.reset();
   });
 }
 

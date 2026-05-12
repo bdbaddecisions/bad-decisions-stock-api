@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8DDZZEREGT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8GDDZEREGT');
+</script>
+    
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n-title="productTitlePage">Classic Oversized Hoodie - Bad Decisions</title>
@@ -35,7 +46,14 @@
       font-family: var(--bd-font-sans);
     }
 
-    .breadcrumb { padding: 110px 0 20px; }
+    .hidden{
+      display:none !important;
+    }
+
+    .breadcrumb {
+      padding: 110px 0 20px;
+    }
+
     .breadcrumb-list{
       list-style:none;
       padding:0;
@@ -47,36 +65,58 @@
       font-size:13px;
       color: var(--bd-muted);
     }
-    .breadcrumb-list a{ color: var(--bd-muted); text-decoration:none; }
-    .breadcrumb-list a:hover{ color: var(--bd-text); }
-    .breadcrumb-sep{ color:#9aa0a6; }
-    .breadcrumb-current{ color: var(--bd-text); font-weight:600; }
 
-    .product-page{ padding: 20px 0 160px; }
+    .breadcrumb-list a{
+      color: var(--bd-muted);
+      text-decoration:none;
+    }
+
+    .breadcrumb-list a:hover{
+      color: var(--bd-text);
+    }
+
+    .breadcrumb-sep{
+      color:#9aa0a6;
+    }
+
+    .breadcrumb-current{
+      color: var(--bd-text);
+      font-weight:600;
+    }
+
+    .product-page{
+      padding: 20px 0 160px;
+    }
+
     .product-grid{
       display:grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 48px;
       align-items:start;
     }
+
     @media (max-width: 980px){
-      .product-grid{ grid-template-columns:1fr; }
+      .product-grid{
+        grid-template-columns:1fr;
+      }
     }
 
     .gallery-main{
-      border-radius:18px;
-      overflow:hidden;
-      background: var(--bd-card);
-      position:relative;
-      height: 560px;
-    }
+  border-radius:18px;
+  overflow:hidden;
+  background: var(--bd-card);
+  position:relative;
+  width:100%;
+  aspect-ratio: 1 / 1;
+  height:auto;
+}
 
     .gallery-main img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
 
     @media (max-width: 768px){
       .gallery-main{
@@ -88,6 +128,48 @@
         object-fit: contain;
       }
     }
+      
+      .gallery-viewport{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+@media (max-width: 768px){
+  .gallery-viewport{
+    touch-action: pan-y;
+  }
+
+  .gallery-main.is-dragging{
+    cursor: grabbing;
+  }
+}
+
+.gallery-track{
+  height:100%;
+  display:flex;
+  will-change:transform;
+  transition:transform .45s cubic-bezier(.22,.61,.36,1);
+}
+
+.gallery-slide{
+  min-width:100%;
+  height:100%;
+  flex:0 0 100%;
+}
+
+.gallery-slide img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+@media (max-width: 768px){
+  .gallery-slide img{
+    object-fit:contain;
+  }
+}
 
     .gallery-badge{
       position:absolute;
@@ -105,28 +187,69 @@
       z-index: 2;
     }
 
+    .gallery-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:999px;
+      background:rgba(255,255,255,0.92);
+      color:#111;
+      font-size:24px;
+      font-weight:700;
+      cursor:pointer;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 8px 20px rgba(0,0,0,.12);
+      transition:background .2s ease, transform .2s ease;
+    }
+
+    .gallery-arrow:hover{
+      background:#fff;
+    }
+
+    .gallery-arrow-left{
+      left:16px;
+    }
+
+    .gallery-arrow-right{
+      right:16px;
+    }
+
     .thumbs{
       margin-top:14px;
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(5, 118px);
+      gap:12px;
+      justify-content:flex-start;
+    }
+
+    .thumbs-row-2{
+      margin-top:12px;
     }
 
     .thumb{
+      position:relative;
+      width:118px;
+      height:118px;
       border-radius:14px;
       overflow:hidden;
       background: var(--bd-card);
       border:2px solid transparent;
       cursor:pointer;
-      aspect-ratio:1/1;
       display:block;
       padding:0;
       appearance:none;
       -webkit-appearance:none;
-      border-width:2px;
     }
 
-    .thumb.active{ border-color: var(--bd-navy); }
+    .thumb.active{
+      border-color: var(--bd-navy);
+    }
 
     .thumb img{
       width:100%;
@@ -135,7 +258,69 @@
       display:block;
     }
 
-    .product-info{ padding-top: 6px; }
+    .thumb-more img{
+  filter: blur(2.5px) brightness(0.65);
+  transform: scale(1.05);
+  transition: filter .2s ease, transform .2s ease;
+}
+
+.thumb-more.open img{
+  filter: none;
+  transform: scale(1);
+}
+
+    .thumb-more-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:24px;
+      font-weight:800;
+      font-family: var(--bd-font-sans);
+      background:rgba(0,0,0,0.18);
+      pointer-events:none;
+      transition:opacity .2s ease;
+    }
+
+    .thumb-more.open .thumb-more-overlay{
+      opacity:0;
+    }
+
+    @media (max-width: 768px){
+      .gallery-arrow{
+        width:40px;
+        height:40px;
+        font-size:20px;
+      }
+
+      .gallery-arrow-left{
+        left:10px;
+      }
+
+      .gallery-arrow-right{
+        right:10px;
+      }
+
+      .thumbs{
+        grid-template-columns: repeat(5, 60px);
+        gap:8px;
+      }
+
+      .thumb{
+        width:60px;
+        height:60px;
+      }
+
+      .thumb-more-overlay{
+        font-size:18px;
+      }
+    }
+
+    .product-info{
+      padding-top: 6px;
+    }
 
     .kicker{
       font-size:12px;
@@ -202,7 +387,9 @@
       font-weight:700;
     }
 
-    .option-group{ margin: 16px 0; }
+    .option-group{
+      margin: 16px 0;
+    }
 
     .option-head{
       display:flex;
@@ -225,7 +412,10 @@
       font-size:12px;
     }
 
-    .colors{ display:flex; gap:10px; }
+    .colors{
+      display:flex;
+      gap:10px;
+    }
 
     .color-btn{
       width:38px;
@@ -237,7 +427,9 @@
       background: var(--bd-navy);
     }
 
-    .color-btn.active{ border-color: var(--bd-navy); }
+    .color-btn.active{
+      border-color: var(--bd-navy);
+    }
 
     .color-btn.solo{
       border-color: var(--bd-navy);
@@ -245,9 +437,14 @@
       cursor: default;
     }
 
-    .sizes{ display:flex; gap:10px; flex-wrap:wrap; }
+    .sizes{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
 
     .size-btn{
+      position: relative;
       height:44px;
       min-width:48px;
       padding:0 14px;
@@ -260,12 +457,45 @@
       font-size:13px;
       color: var(--bd-text);
       transition: .2s ease;
+      overflow:hidden;
     }
 
     .size-btn.active{
       background: var(--bd-navy);
       border-color: var(--bd-navy);
       color:#fff;
+    }
+
+    .size-btn.out-of-stock{
+      background:#eef3fb;
+      border-color:#c9d5ea;
+      color:#8b96a8;
+      cursor:pointer;
+    }
+
+    .size-btn.out-of-stock::after{
+      content:"";
+      position:absolute;
+      left:-10%;
+      top:50%;
+      width:120%;
+      height:1.5px;
+      background:#8ea3c7;
+      transform:rotate(-18deg);
+      transform-origin:center;
+      pointer-events:none;
+    }
+
+    .size-btn.out-of-stock:hover{
+      background:#e8eef9;
+      border-color:#b9c9e5;
+    }
+
+    .size-btn.out-of-stock.active{
+      background:#dfe9f8;
+      border-color:#9eb4d8;
+      color:#6f7f97;
+      box-shadow: 0 0 0 2px rgba(142,163,199,.18);
     }
 
     .size-error{
@@ -328,7 +558,9 @@
       margin-top:10px;
     }
 
-    .cta-row .btn{ flex:1; }
+    .cta-row .btn{
+      flex:1;
+    }
 
     .btn.btn-primary:hover{
       filter: brightness(1.08);
@@ -389,62 +621,232 @@
       justify-content: center;
       box-sizing: border-box;
     }
-      
+
     .stock-info{
-  margin-top:10px;
-  font-size:13px;
-  color: var(--bd-muted);
-  font-family: var(--bd-font-sans);
-  font-weight:600;
-  min-height:20px;
-  transition: color .25s ease, transform .25s ease, opacity .25s ease;
-}
+      margin-top:10px;
+      font-size:13px;
+      color: var(--bd-muted);
+      font-family: var(--bd-font-sans);
+      font-weight:600;
+      min-height:20px;
+      transition: color .25s ease, transform .25s ease, opacity .25s ease;
+    }
 
-.stock-info.low-stock{
-  color: #c62828;
+    .stock-info.low-stock{
+      color: #c62828;
+      font-weight:800;
+      animation: stockPulse 1.2s ease-in-out infinite;
+    }
+
+    .stock-info.out-of-stock{
+      color: #c62828;
+      font-weight:800;
+    }
+
+    @keyframes stockPulse{
+      0%{ transform: scale(1); opacity: 1; }
+      50%{ transform: scale(1.04); opacity: .88; }
+      100%{ transform: scale(1); opacity: 1; }
+    }
+
+    .qty-hint{
+      margin:6px 0 0;
+      font-size:12px;
+      color: var(--bd-muted);
+      font-family: var(--bd-font-sans);
+    }
+
+    .cart-stock-message{
+      margin-top:10px;
+      font-size:13px;
+      color: var(--bd-danger);
+      font-family: var(--bd-font-sans);
+      min-height:18px;
+    }
+
+    .notify-wrap{
+      margin-top:16px;
+      padding:16px;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      background:#f8fafc;
+      display:none;
+    }
+
+    .notify-title{
+      margin:0 0 6px;
+      font-size:14px;
+      font-weight:800;
+      color: var(--bd-text);
+      font-family: var(--bd-font-sans);
+    }
+
+    .notify-text{
+      margin:0 0 12px;
+      font-size:13px;
+      color: var(--bd-muted);
+      font-family: var(--bd-font-sans);
+      line-height:1.5;
+    }
+
+    .notify-form{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .notify-input{
+      flex:1;
+      min-width:220px;
+      height:44px;
+      border:1.5px solid #dbe1ea;
+      border-radius:12px;
+      padding:0 14px;
+      font-size:14px;
+      font-family: var(--bd-font-sans);
+      outline:none;
+      background:#fff;
+    }
+
+    .notify-input:focus{
+      border-color: var(--bd-navy);
+    }
+
+    .notify-btn{
+      height:44px;
+      padding:0 18px;
+      border:0;
+      border-radius:12px;
+      background: var(--bd-navy);
+      color:#fff;
+      font-weight:800;
+      cursor:pointer;
+      font-family: var(--bd-font-sans);
+      transition: filter 0.2s ease;
+    }
+
+    .notify-btn:hover{
+      filter: brightness(1.08);
+    }
+
+    .notify-btn:disabled{
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .notify-message{
+      margin:10px 0 0;
+      font-size:13px;
+      font-family: var(--bd-font-sans);
+      color: var(--bd-muted);
+      min-height:18px;
+    }
+
+    .notify-message.success{
+      color: var(--bd-success);
+      font-weight: 600;
+    }
+
+    .notify-message.error{
+      color: var(--bd-danger);
+      font-weight: 600;
+    }
+      
+      .shipping-strip{
+  position:fixed;
+  top:80px;
+  left:0;
+  width:100%;
+  background:#000;
+  color:#fff;
+  text-align:center;
+  font-family:var(--bd-font-sans);
+  font-size:11px;
   font-weight:800;
-  animation: stockPulse 1.2s ease-in-out infinite;
-}
-
-.stock-info.out-of-stock{
-  color: #c62828;
-  font-weight:800;
-}
-
-@keyframes stockPulse{
-  0%{
-    transform: scale(1);
-    opacity: 1;
-  }
-  50%{
-    transform: scale(1.04);
-    opacity: .88;
-  }
-  100%{
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.qty-hint{
-  margin:6px 0 0;
-  font-size:12px;
-  color: var(--bd-muted);
-  font-family: var(--bd-font-sans);
-}
-
-.cart-stock-message{
-  margin-top:10px;
-  font-size:13px;
-  color: var(--bd-danger);
-  font-family: var(--bd-font-sans);
-  min-height:18px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:7px 12px;
+  z-index:10;
 }
       
+      .header{
+  z-index:1000;
+}
+
+.breadcrumb{
+  padding: 145px 0 20px;
+}
+      
+   .image-lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  z-index:99999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.image-lightbox.open{
+  display:flex;
+}
+
+.image-lightbox-img{
+  max-width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  cursor:zoom-in;
+  user-select:none;
+  -webkit-user-select:none;
+  will-change:transform;
+  transition:transform .22s ease, opacity .22s ease;
+}
+
+.image-lightbox-img.zoomed{
+  cursor:grab;
+  touch-action:none;
+  transition:none;
+}
+
+.image-lightbox-img.zoomed.dragging{
+  cursor:grabbing;
+}
+      
+      .image-lightbox-img.lightbox-changing{
+  opacity:0;
+  transform:translate3d(18px,0,0) scale(0.98);
+}
+
+.image-lightbox-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:999px;
+  background:#fff;
+  color:#000;
+  font-size:28px;
+  line-height:44px;
+  cursor:pointer;
+  font-weight:700;
+}
+      
+      @media (max-width: 768px){
+  .image-lightbox{
+    touch-action:none;
+    overscroll-behavior:contain;
+  }
+
+  .image-lightbox-img{
+    touch-action:none;
+  }
+}
       
   </style>
 </head>
-
 <body>
   <script>
     window.SnipcartSettings = {
@@ -456,21 +858,28 @@
     (() => {
       var c, d;
       (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
+
       var s, S;
       (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
+
       var l, p;
       (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
+
       var w, u;
       (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
 
-      var isV3 = window.SnipcartSettings.version.includes("v3.0.0-ci") ||
-        window.SnipcartSettings.version != "3.0" &&
-        window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
-          numeric: !0,
-          sensitivity: "base"
-        }) === -1;
+      var isV3 =
+        window.SnipcartSettings.version.includes("v3.0.0-ci") ||
+        (
+          window.SnipcartSettings.version != "3.0" &&
+          window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+            numeric: true,
+            sensitivity: "base"
+          }) === -1
+        );
 
       var listeners = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+
       window.LoadSnipcart = loadSnipcart;
 
       document.readyState === "loading"
@@ -540,12 +949,12 @@
   <header class="header">
     <div class="container">
       <nav class="nav">
-        <a href="index.html" class="logo" aria-label="Bad Decisions Home">
+        <a href="home.html" class="logo" aria-label="Bad Decisions Home">
           <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
         </a>
 
         <nav class="nav-desktop" aria-label="Primary navigation">
-          <a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
+          <a href="home.html" class="nav-link" data-i18n="navHome">Home</a>
           <a href="shop.html" class="nav-link" data-i18n="navShop">Shop</a>
           <a href="about.html" class="nav-link" data-i18n="navAbout">About</a>
           <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
@@ -569,7 +978,6 @@
                 <span class="lang-name" data-i18n="langEnglish">English</span>
                 <img class="lang-item-flag" src="flags/gb.png" alt="">
               </button>
-
               <button type="button" class="lang-item" data-lang="sl" role="menuitem">
                 <span class="lang-code">SI</span>
                 <span class="lang-name" data-i18n="langSlovenian">Slovenščina</span>
@@ -593,167 +1001,218 @@
 
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
       <div class="mobile-menu-inner">
-        <a href="index.html" class="mobile-link" data-i18n="navHome">Home</a>
+        <a href="home.html" class="mobile-link" data-i18n="navHome">Home</a>
         <a href="shop.html" class="mobile-link" data-i18n="navShop">Shop</a>
         <a href="about.html" class="mobile-link" data-i18n="navAbout">About</a>
         <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
       </div>
     </nav>
+       
   </header>
+    
+    
+    <div class="shipping-strip" id="shippingStrip">
+  <span>Free shipping on EU orders above €70</span>
+</div>
+
 
   <nav class="breadcrumb">
     <div class="container">
       <ol class="breadcrumb-list">
-        <li><a href="index.html" data-i18n="navHome">Home</a></li>
+        <li><a href="home.html" data-i18n="navHome">Home</a></li>
         <li class="breadcrumb-sep">›</li>
         <li><a href="shop.html" data-i18n="navShop">Shop</a></li>
         <li class="breadcrumb-sep">›</li>
-        <li class="breadcrumb-current" data-i18n="productName">Classic Oversized Hoodie</li>
+        <li class="breadcrumb-current" data-i18n="productBreadcrumbName">Classic Oversized Hoodie</li>
       </ol>
     </div>
   </nav>
 
-  <div class="top-toast" id="topToast" role="status" aria-live="polite" data-i18n="addedToCart">Added to cart</div>
-
   <section class="product-page">
     <div class="container">
       <div class="product-grid">
-        <div>
+        <div class="product-gallery">
           <div class="gallery-main">
-            <span class="gallery-badge" data-i18n="productBadge">Best Seller</span>
-            <img id="mainImage" src="Slike/product_slika.jpeg" alt="Classic Oversized Hoodie">
+            <span class="gallery-badge" data-i18n="productGalleryBadge">New Arrival</span>
+
+            <button class="gallery-arrow gallery-arrow-left" id="galleryPrev" type="button" aria-label="Previous image">
+              &#10094;
+            </button>
+
+            <div class="gallery-viewport" id="galleryViewport">
+            <div class="gallery-track" id="galleryTrack"></div>
+            </div>
+
+            <button class="gallery-arrow gallery-arrow-right" id="galleryNext" type="button" aria-label="Next image">
+              &#10095;
+            </button>
           </div>
 
-          <div class="thumbs">
-            <button class="thumb active" type="button" data-src="Slike/product_slika.jpeg" aria-label="View 1">
-              <img src="Slike/product_slika.jpeg" alt="View 1">
+          <div class="thumbs thumbs-row-1" id="thumbsRow1">
+            <button class="thumb active" data-index="0" data-src="Slike/product_front.png" type="button">
+              <img src="Slike/product_front.png" alt="Front view">
             </button>
-            <button class="thumb" type="button" data-src="Slike/product_slika2.JPG" aria-label="View 2">
-              <img src="Slike/product_slika2.JPG" alt="View 2">
+
+            <button class="thumb" data-index="1" data-src="Slike/product_back.png" type="button">
+              <img src="Slike/product_back.png" alt="Back view">
             </button>
-            <button class="thumb" type="button" data-src="Slike/product_slika3.jpeg" aria-label="View 3">
-              <img src="Slike/product_slika3.jpeg" alt="View 3">
+
+            <button class="thumb" data-index="2" data-src="Slike/4%20(2).JPG" type="button">
+              <img src="Slike/4%20(2).JPG" alt="Detail view">
             </button>
-            <button class="thumb" type="button" data-src="Slike/product_slika4.png" aria-label="View 4">
-              <img src="Slike/product_slika4.png" alt="View 4">
+
+            <button class="thumb" data-index="3" data-src="Slike/1%20%E2%80%93%20kopija.JPG" type="button">
+              <img src="Slike/1%20%E2%80%93%20kopija.JPG" alt="Image 4">
+            </button>
+
+            <button class="thumb thumb-more" id="showMoreThumbs" data-index="4" data-src="Slike/detail2.JPG" type="button">
+              <img src="Slike/detail2.JPG" alt="More images">
+              <span class="thumb-more-overlay">+3</span>
+            </button>
+          </div>
+
+          <div class="thumbs thumbs-row-2 hidden" id="thumbsRow2">
+            <button class="thumb" data-index="5" data-src="Slike/hotel1.JPG" type="button">
+              <img src="Slike/hotel1.JPG" alt="Image 6">
+            </button>
+
+            <button class="thumb" data-index="6" data-src="Slike/zid1.JPG" type="button">
+              <img src="Slike/zid1.JPG" alt="Image 7">
+            </button>
+
+            <button class="thumb" data-index="7" data-src="Slike/hoodie_size_chart.png" type="button">
+              <img src="Slike/hoodie_size_chart.png" alt="Image 8">
             </button>
           </div>
         </div>
 
         <div class="product-info">
-          <div class="kicker" data-i18n="productCollection">Oversized Collection</div>
-          <h1 class="product-title" data-i18n="productName">Bad decisions hoodie</h1>
-          <div class="product-price">€49.99</div>
+          <p class="kicker" data-i18n="productKicker">Bad Decisions Essentials</p>
+          <h1 class="product-title" data-i18n="productPageName">Classic Oversized Hoodie</h1>
+          <p class="product-price">€49.99</p>
+            
+            
+            
+            <div class="product-rating-summary">
+  <div class="product-rating-stars" id="productStars">☆☆☆☆☆</div>
 
-          <div class="product-rating-summary" id="productRatingSummary">
-            <span class="product-rating-stars" id="productStars">☆☆☆☆☆</span>
-            <span class="product-rating-text">
-              <span id="productRatingValue">—</span>
-              (<span id="productRatingCount">0</span>)
-            </span>
-            <a href="#reviewsSection" class="product-review-link" data-i18n="productWriteReview">Write a review</a>
-          </div>
+  <div class="product-rating-text">
+    <span id="productRatingValue">0.0</span>
+    <span id="productRatingCount">(0 reviews)</span>
 
-          <p class="product-desc" data-i18n="productDescription">
-            Our signature oversized silhouette. Crafted from heavyweight French terry for that perfect drape.
-            The ultimate statement piece for those who refuse to blend in. Pre-washed for a lived-in feel from day one.
-          </p>
+    <a href="javascript:void(0)" class="product-review-link" id="viewAllReviews" data-i18n="productRatingViewAll">
+  View all
+</a>
+  </div>
+</div>
+
+          <p class="product-desc" data-i18n="productShortDescription">
+  Premium oversized hoodie crafted from heavyweight French terry cotton.
+  Designed for a relaxed fit with dropped shoulders and a spacious hood.
+</p>
 
           <div class="details-row">
-            <div class="detail">
-              <small data-i18n="productFabricLabel">Fabric</small>
-              <strong data-i18n="productFabricValue">350gsm</strong>
-            </div>
-            <div class="detail">
-              <small data-i18n="productFitLabel">Fit</small>
-              <strong data-i18n="productFitValue">Oversized</strong>
-            </div>
-            <div class="detail">
-              <small data-i18n="productMaterialLabel">Material</small>
-              <strong data-i18n="productMaterialValue">100% cotton</strong>
-            </div>
-          </div>
+  <div class="detail">
+    <small data-i18n="productMaterialLabel">Material</small>
+    <strong data-i18n="productMaterialValue">85% Cotton 15% polyestr</strong>
+  </div>
+  <div class="detail">
+    <small data-i18n="productWeightLabel">Weight</small>
+    <strong data-i18n="productWeightValue">380 GSM</strong>
+  </div>
+  <div class="detail">
+    <small data-i18n="productFitLabel">Fit</small>
+    <strong data-i18n="productFitValue">Oversized</strong>
+  </div>
+</div>
 
           <div class="option-group">
             <div class="option-head">
-              <span data-i18n="color">Color</span>
-              <span class="selected-value" id="selectedColor" data-i18n="navyBlue">Navy Blue</span>
-            </div>
+  <span data-i18n="productColor">Color</span>
+  <span class="selected-value" id="selectedColor" data-i18n="navyBlue">Navy Blue</span>
+</div>
             <div class="colors">
-              <button class="color-btn solo active" data-color="Navy Blue" aria-label="Navy Blue" type="button"></button>
+              <button class="color-btn active solo" data-color="Navy Blue" title="Navy Blue" type="button"></button>
             </div>
           </div>
 
           <div class="option-group">
-  <div class="option-head">
-    <span data-i18n="size">Size</span>
-    <span class="selected-value" id="selectedSize">Select size</span>
-  </div>
-
-  <div class="sizes">
-    <button class="size-btn" data-size="S" type="button">S</button>
-    <button class="size-btn" data-size="M" type="button">M</button>
-    <button class="size-btn" data-size="L" type="button">L</button>
-    <button class="size-btn" data-size="XL" type="button">XL</button>
-  </div>
-
-  <p id="stockInfo" class="stock-info">Select a size to see stock.</p>
-  <p id="sizeError" class="size-error">Please select a size.</p>
+           <div class="option-head">
+  <span data-i18n="productSize">Size</span>
+  <span class="selected-value" id="selectedSize" data-i18n="productSelectSize">Select size</span>
 </div>
+            <div class="sizes">
+              <button class="size-btn" data-size="S" type="button">S</button>
+              <button class="size-btn" data-size="M" type="button">M</button>
+              <button class="size-btn" data-size="L" type="button">L</button>
+              <button class="size-btn" data-size="XL" type="button">XL</button>
+            </div>
+            <p id="sizeError" class="size-error" data-i18n="productPleaseSelectSize">Please select a size.</p>
+            <p id="stockInfo" class="stock-info" data-i18n="productLoadingStock">Loading stock...</p>
+          </div>
 
           <div class="qty-row">
-  <div>
-    <div class="qty-label" data-i18n="productQuantity">Quantity</div>
-    <p id="qtyHint" class="qty-hint">Max: —</p>
-  </div>
+            <span class="qty-label" data-i18n="productQuantity">Quantity</span>
+            <div class="qty">
+              <button id="qtyMinus" type="button">−</button>
+              <span id="qtyValue">1</span>
+              <button id="qtyPlus" type="button">+</button>
+            </div>
+          </div>
 
-  <div class="qty">
-    <button type="button" id="qtyMinus">−</button>
-    <span id="qtyValue">1</span>
-    <button type="button" id="qtyPlus">+</button>
-  </div>
-</div>
+          <p id="qtyHint" class="qty-hint">Max: —</p>
 
           <div class="cta-row">
-  <button
-    class="btn btn-primary btn-full snipcart-add-item"
-    id="addToCartBtn"
-    type="button"
-    data-item-id="oversized-hoodie"
-    data-item-price="49.99"
-    data-item-url="https://nonconsequentially-holoblastic-daysi.ngrok-free.dev/index.html"
-    data-item-description="Bad Decisions hoodie"
-    data-item-image="Slike/product_slika.jpeg"
-    data-item-name="Bad decisions hoodie"
-    data-item-quantity="1"
-    data-item-custom1-name="Size"
-    data-item-custom1-options="S|M|L|XL"
-    data-item-custom1-value=""
-    data-item-custom1-required="true"
-    data-item-custom2-name="Color"
-    data-item-custom2-options="Navy Blue"
-    data-item-custom2-value="Navy Blue"
-    data-item-custom2-required="true"
-    data-item-weight="500"
-    data-item-shippable="true"
-  >
-    <span data-i18n="productAddToCart">Add to Cart</span> —
-    <span id="totalPrice">€49.99</span>
-  </button>
+            <button
+              class="btn btn-primary btn-full snipcart-add-item"
+              id="addToCartBtn"
+              type="button"
+              data-item-id="oversized-hoodie"
+              data-item-price="49.99"
+              data-item-url="/product.html"
+              data-item-description="Bad Decisions hoodie"
+              data-item-image="Slike/product_front.png"
+              data-item-name="Bad decisions hoodie"
+              data-item-quantity="1"
+              data-item-custom1-name="Size"
+              data-item-custom1-options="S|M|L|XL"
+              data-item-custom1-value=""
+              data-item-custom1-required="true"
+              data-item-custom2-name="Color"
+              data-item-custom2-options="Navy Blue"
+              data-item-custom2-value="Navy Blue"
+              data-item-custom2-required="true"
+              data-item-weight="800"
+              data-item-shippable="true"
+            >
+              <span data-i18n="productAddToCart">Add to Cart</span> —
+              <span id="totalPrice">€49.99</span>
+            </button>
+          </div>
+
+          <p id="cartStockMessage" class="cart-stock-message"></p>
+
+          <div id="notifyWrap" class="notify-wrap">
+            <p class="notify-title" data-i18n="notifyTitle">Out of stock in this size?</p>
+<p class="notify-text" data-i18n="notifyText">Enter your email and we'll let you know when it's back.</p>
+
+<div class="notify-form">
+  <input type="email" id="notifyEmail" class="notify-input" data-i18n-placeholder="notifyPlaceholder" placeholder="Enter your email" required />
+  <button type="button" id="notifyBtn" class="notify-btn" data-i18n="notifyButton">Notify me</button>
 </div>
 
-<p id="cartStockMessage" class="cart-stock-message"></p>
+            <p id="notifyMessage" class="notify-message"></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bd-reviews" id="reviewsSection">
+  <section class="bd-reviews" id="reviews">
     <div class="container">
       <div class="bd-reviews__head">
         <p class="bd-reviews__eyebrow" data-i18n="productReviewsEyebrow">Customer Reviews</p>
         <h2 class="bd-reviews__title" data-i18n="productReviewsTitle">What people are saying</h2>
-
         <div class="bd-reviews__summary">
           <span class="bd-reviews__stars">★★★★★</span>
           <span class="bd-reviews__rating" id="reviewsAverage">— / 5</span>
@@ -761,61 +1220,7 @@
         </div>
       </div>
 
-      <div class="bd-review-form-wrap">
-        <h3 class="bd-review-form__title" data-i18n="productLeaveReview">Leave a review</h3>
-
-        <form id="reviewForm" class="bd-review-form">
-          <div class="bd-review-form__row bd-review-form__row--three">
-            <input
-              type="text"
-              id="reviewName"
-              placeholder="Your name"
-              data-i18n-placeholder="productReviewNamePlaceholder"
-              required
-              maxlength="50"
-            >
-
-            <input
-              type="email"
-              id="reviewEmail"
-              placeholder="Your email"
-              data-i18n-placeholder="productReviewEmailPlaceholder"
-              required
-              maxlength="120"
-            >
-
-            <select id="reviewRating" required>
-              <option value="" data-i18n="productReviewRatingPlaceholder">Rating</option>
-              <option value="5">5 ★</option>
-              <option value="4">4 ★</option>
-              <option value="3">3 ★</option>
-              <option value="2">2 ★</option>
-              <option value="1">1 ★</option>
-            </select>
-          </div>
-
-          <input
-            type="file"
-            id="reviewImage"
-            accept="image/png,image/jpeg,image/webp"
-          >
-
-          <textarea
-            id="reviewText"
-            placeholder="Write your review..."
-            data-i18n-placeholder="productReviewTextPlaceholder"
-            required
-            minlength="10"
-            maxlength="500"
-          ></textarea>
-
-          <button type="submit" class="btn btn-primary" data-i18n="productSubmitReview">
-            Submit Review
-          </button>
-
-          <p class="bd-review-form__note" id="reviewMessage"></p>
-        </form>
-      </div>
+    
 
       <div class="bd-reviews__grid" id="reviewsList"></div>
     </div>
@@ -825,10 +1230,9 @@
     <div class="container bd-footer__container">
       <div class="bd-footer__grid">
         <div class="bd-footer__brand">
-          <a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <a href="home.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
           <p class="bd-footer__tagline" data-i18n-html="footerTagline">
-            Premium hoodies for those who make<br>
-            moves, not excuses.
+            Premium hoodies for those who make<br> moves, not excuses.
           </p>
         </div>
 
@@ -861,15 +1265,12 @@
 
       <div class="bd-footer__bottom">
         <p class="bd-footer__copy">
-          &copy; <span id="bdFooterYear">2026</span> <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
+          &copy; <span id="bdFooterYear">2026</span>
+          <span data-i18n="footerRights">Bad Decisions. All rights reserved.</span>
         </p>
 
         <div class="bd-footer__social">
-          <a class="bd-footer__icon"
-             href="https://www.instagram.com/bad.decisions_official/"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Instagram">
+          <a class="bd-footer__icon" href="https://www.instagram.com/bad.decisions_official/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
               <rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect>
               <circle cx="12" cy="12" r="4"></circle>
@@ -877,11 +1278,7 @@
             </svg>
           </a>
 
-          <a class="bd-footer__icon"
-             href="https://www.tiktok.com/@bd.bad.decisions"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="TikTok">
+          <a class="bd-footer__icon" href="https://www.tiktok.com/@bad.decisions_official" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M21 8.5a6.5 6.5 0 0 1-4.6-1.9v7.4a5.5 5.5 0 1 1-4.8-5.5v3a2.5 2.5 0 1 0 1.8 2.4V2h3a6.5 6.5 0 0 0 4.6 3v3.5z"/>
             </svg>
@@ -895,290 +1292,1364 @@
   <script src="script.js"></script>
   <script type="module" src="reviews.js"></script>
 
-    
-    
   <script>
-(() => {
-  const PRODUCT = {
-    id: "oversized-hoodie",
-    name: "Bad decisions hoodie",
-    price: 49.99,
-    image: "Slike/product_slika.jpeg"
-  };
+    (() => {
+      const PRODUCT = {
+        id: "oversized-hoodie",
+        name: "Bad decisions hoodie",
+        price: 49.99,
+        image: "Slike/product_front.png"
+      };
 
-  let selectedColor = "Navy Blue";
-  let selectedSize = "";
-  let qty = 1;
-  let stockBySize = {};
+      const STOCK_API_URL = "https://bad-decisions-stock-api.onrender.com/api/product-stock";
+      const STOCK_CACHE_KEY = "bd_stock_cache";
 
-  async function loadStock() {
-    try {
-      const res = await fetch("https://bad-decisions-stock-api.onrender.com/api/product-stock");
-      const data = await res.json();
-      stockBySize = data.stockBySize || {};
-    } catch (err) {
-      console.error("Stock load failed:", err);
-      stockBySize = {};
-    }
-  }
+      let selectedColor = "Navy Blue";
+      let selectedSize = "";
+      let qty = 1;
+      let stockBySize = {};
+      let stockLoaded = false;
+      let stockError = false;
 
-  function getStockForSize(size) {
-    if (!size) return 0;
-    return Number(stockBySize[size] || 0);
-  }
-
-  function disableOutOfStockSizes() {
-    document.querySelectorAll(".size-btn").forEach((btn) => {
-      const size = btn.dataset.size;
-      const stock = getStockForSize(size);
-
-      if (stock <= 0) {
-        btn.disabled = true;
-        btn.style.opacity = "0.4";
-        btn.style.cursor = "not-allowed";
-      } else {
-        btn.disabled = false;
-        btn.style.opacity = "1";
-        btn.style.cursor = "pointer";
-      }
-    });
-  }
-
-  function updateStockInfo() {
-    const stockInfo = document.getElementById("stockInfo");
-    const qtyHint = document.getElementById("qtyHint");
-    const cartStockMessage = document.getElementById("cartStockMessage");
-    const qtyPlus = document.getElementById("qtyPlus");
-
-    if (!stockInfo || !qtyHint || !qtyPlus) return;
-
-    stockInfo.classList.remove("low-stock", "out-of-stock");
-
-    if (!selectedSize) {
-      stockInfo.textContent = "Select a size to see stock.";
-      qtyHint.textContent = "Max: —";
-      qtyPlus.disabled = true;
-      if (cartStockMessage) cartStockMessage.textContent = "";
-      return;
-    }
-
-    const stock = getStockForSize(selectedSize);
-
-    qtyHint.textContent = "Max: " + stock;
-
-    if (stock <= 0) {
-      stockInfo.textContent = "Out of stock";
-      stockInfo.classList.add("out-of-stock");
-      qtyPlus.disabled = true;
-      qty = 1;
-      if (cartStockMessage) cartStockMessage.textContent = "This size is out of stock.";
-      return;
-    }
-
-    if (stock <= 2) {
-      stockInfo.textContent = "Only " + stock + " left";
-      stockInfo.classList.add("low-stock");
-    } else {
-      stockInfo.textContent = "In stock: " + stock;
-    }
-
-    qtyPlus.disabled = qty >= stock;
-
-    if (cartStockMessage) cartStockMessage.textContent = "";
-  }
-
-  function updateSnipcartButton() {
-    const addBtn = document.getElementById("addToCartBtn");
-    if (!addBtn) return;
-
-    const baseUrl = window.location.origin;
-    const stock = getStockForSize(selectedSize);
-
-    addBtn.setAttribute("data-item-id", PRODUCT.id);
-    addBtn.setAttribute("data-item-name", PRODUCT.name);
-    addBtn.setAttribute("data-item-price", String(PRODUCT.price));
-    addBtn.setAttribute("data-item-url", window.location.href);
-    addBtn.setAttribute("data-item-image", baseUrl + "/Slike/product_slika.jpeg");
-    addBtn.setAttribute("data-item-description", "Bad Decisions hoodie");
-    addBtn.setAttribute("data-item-quantity", String(qty));
-    addBtn.setAttribute("data-item-custom1-value", selectedSize);
-    addBtn.setAttribute("data-item-custom2-value", selectedColor);
-
-    if (!selectedSize || stock <= 0) {
-      addBtn.classList.add("disabled");
-      addBtn.setAttribute("aria-disabled", "true");
-    } else {
-      addBtn.classList.remove("disabled");
-      addBtn.removeAttribute("aria-disabled");
-    }
-  }
-
-  function updateTotalPrice() {
-    const qtyValue = document.getElementById("qtyValue");
-    const totalPrice = document.getElementById("totalPrice");
-
-    if (selectedSize) {
-      const stock = getStockForSize(selectedSize);
-      if (stock > 0 && qty > stock) {
-        qty = stock;
-      }
-    }
-
-    if (qtyValue) qtyValue.textContent = String(qty);
-    if (totalPrice) totalPrice.textContent = "€" + (PRODUCT.price * qty).toFixed(2);
-
-    updateStockInfo();
-    updateSnipcartButton();
-  }
-
-  async function initProductPage() {
-    await loadStock();
-    disableOutOfStockSizes();
-    updateStockInfo();
-    updateSnipcartButton();
-
-    const mainImage = document.getElementById("mainImage");
-    const thumbs = document.querySelectorAll(".thumb");
-    const gallery = document.querySelector(".gallery-main");
-    const sizeError = document.getElementById("sizeError");
-    const addBtn = document.getElementById("addToCartBtn");
-    const cartStockMessage = document.getElementById("cartStockMessage");
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let currentIndex = 0;
-
-    function showImage(index) {
-      const thumbArray = Array.from(thumbs);
-
-      if (index < 0) index = thumbArray.length - 1;
-      if (index >= thumbArray.length) index = 0;
-
-      thumbArray.forEach((t) => t.classList.remove("active"));
-      thumbArray[index].classList.add("active");
-
-      const src = thumbArray[index].dataset.src;
-      if (src && mainImage) mainImage.src = src;
-
-      currentIndex = index;
-    }
-
-    function handleSwipe() {
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) < 40) return;
-
-      if (diff > 0) showImage(currentIndex + 1);
-      else showImage(currentIndex - 1);
-    }
-
-    if (gallery) {
-      gallery.addEventListener("touchstart", (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-
-      gallery.addEventListener("touchend", (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      });
-    }
-
-    thumbs.forEach((btn, index) => {
-      btn.addEventListener("click", () => {
-        showImage(index);
-      });
-    });
-
-    document.querySelectorAll(".size-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (btn.disabled) return;
-
-        document.querySelectorAll(".size-btn").forEach((x) => x.classList.remove("active"));
-        btn.classList.add("active");
-
-        selectedSize = btn.dataset.size || "";
-        qty = 1;
-
-        const selected = document.getElementById("selectedSize");
-        if (selected) selected.textContent = selectedSize;
-
-        if (sizeError) sizeError.style.display = "none";
-        if (cartStockMessage) cartStockMessage.textContent = "";
-
-        updateTotalPrice();
-      });
-    });
-
-    document.querySelectorAll(".color-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".color-btn").forEach((x) => x.classList.remove("active"));
-        btn.classList.add("active");
-
-        selectedColor = btn.dataset.color || "Navy Blue";
-
-        const selected = document.getElementById("selectedColor");
-        if (selected) selected.textContent = selectedColor;
-
-        updateSnipcartButton();
-      });
-    });
-
-    document.getElementById("qtyMinus")?.addEventListener("click", () => {
-      qty = Math.max(1, qty - 1);
-      updateTotalPrice();
-    });
-
-    document.getElementById("qtyPlus")?.addEventListener("click", () => {
-      if (!selectedSize) return;
-
-      const stock = getStockForSize(selectedSize);
-      if (stock <= 0) return;
-
-      qty = Math.min(stock, qty + 1);
-      updateTotalPrice();
-    });
-
-    addBtn?.addEventListener("click", (e) => {
-      const stock = getStockForSize(selectedSize);
-
-      if (!selectedSize) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (sizeError) sizeError.style.display = "block";
-        if (cartStockMessage) cartStockMessage.textContent = "Please select a size.";
-        return;
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
       }
 
-      if (stock <= 0) {
-        e.preventDefault();
-        e.stopPropagation();
+      function loadCachedStock() {
+        try {
+          const raw = localStorage.getItem(STOCK_CACHE_KEY);
+          if (!raw) return;
 
-        if (cartStockMessage) cartStockMessage.textContent = "This size is out of stock.";
-        return;
-      }
+          const parsed = JSON.parse(raw);
 
-      if (qty > stock) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        qty = stock;
-        updateTotalPrice();
-
-        if (cartStockMessage) {
-          cartStockMessage.textContent = "You can only add " + stock + " of this size.";
+          if (
+            parsed &&
+            typeof parsed === "object" &&
+            parsed.stockBySize &&
+            typeof parsed.stockBySize === "object"
+          ) {
+            stockBySize = parsed.stockBySize;
+            stockLoaded = true;
+          }
+        } catch (err) {
+          console.error("Failed to load cached stock:", err);
         }
       }
-    });
 
-    updateTotalPrice();
-  }
+      function saveCachedStock() {
+        try {
+          localStorage.setItem(
+            STOCK_CACHE_KEY,
+            JSON.stringify({
+              stockBySize,
+              savedAt: Date.now()
+            })
+          );
+        } catch (err) {
+          console.error("Failed to save cached stock:", err);
+        }
+      }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initProductPage);
+      async function loadStock(retries = 2) {
+        stockError = false;
+
+        for (let attempt = 0; attempt <= retries; attempt++) {
+          try {
+            const res = await fetch(STOCK_API_URL, { cache: "no-store" });
+
+            if (!res.ok) {
+              throw new Error("HTTP " + res.status);
+            }
+
+            const data = await res.json();
+
+            if (!data || typeof data.stockBySize !== "object" || data.stockBySize === null) {
+              throw new Error("Invalid stock response");
+            }
+
+            stockBySize = data.stockBySize;
+            stockLoaded = true;
+            stockError = false;
+            saveCachedStock();
+            return true;
+          } catch (err) {
+            console.error(`Stock load attempt ${attempt + 1} failed:`, err);
+            if (attempt < retries) {
+              await sleep(700);
+            }
+          }
+        }
+
+        stockError = true;
+        return false;
+      }
+
+      function getStockForSize(size) {
+        if (!size) return null;
+        if (!stockLoaded) return null;
+        if (!(size in stockBySize)) return null;
+
+        const value = Number(stockBySize[size]);
+        return Number.isFinite(value) ? value : null;
+      }
+
+      function markOutOfStockSizes() {
+        document.querySelectorAll(".size-btn").forEach((btn) => {
+          const size = btn.dataset.size;
+          const stock = getStockForSize(size);
+
+          btn.classList.remove("out-of-stock");
+
+          if (stock === 0) {
+            btn.classList.add("out-of-stock");
+          }
+        });
+      }
+
+      function updateNotifyMe() {
+        const notifyWrap = document.getElementById("notifyWrap");
+        const notifyMessage = document.getElementById("notifyMessage");
+
+        if (!notifyWrap) return;
+
+        if (!selectedSize) {
+          notifyWrap.style.display = "none";
+          if (notifyMessage) {
+            notifyMessage.textContent = "";
+            notifyMessage.className = "notify-message";
+          }
+          return;
+        }
+
+        const stock = getStockForSize(selectedSize);
+
+        if (stock === 0) {
+          notifyWrap.style.display = "block";
+        } else {
+          notifyWrap.style.display = "none";
+          if (notifyMessage) {
+            notifyMessage.textContent = "";
+            notifyMessage.className = "notify-message";
+          }
+        }
+      }
+
+      function updateStockInfo() {
+        const stockInfo = document.getElementById("stockInfo");
+        const qtyHint = document.getElementById("qtyHint");
+        const cartStockMessage = document.getElementById("cartStockMessage");
+        const qtyPlus = document.getElementById("qtyPlus");
+
+        if (!stockInfo || !qtyHint || !qtyPlus) return;
+
+        stockInfo.classList.remove("low-stock", "out-of-stock");
+
+        if (!selectedSize) {
+          if (!stockLoaded && !stockError) {
+            stockInfo.textContent = t("productLoadingStock");
+          } else if (stockError && !stockLoaded) {
+            stockInfo.textContent = t("productStockUnavailable");
+          } else {
+            stockInfo.textContent = t("productSelectSizeStock");
+          }
+
+          qtyHint.textContent = "Max: —";
+          qtyPlus.disabled = true;
+
+          if (cartStockMessage) cartStockMessage.textContent = "";
+          updateNotifyMe();
+          return;
+        }
+
+        const stock = getStockForSize(selectedSize);
+
+        if (stock === null) {
+          stockInfo.textContent = stockError ? "Stock temporarily unavailable." : "Loading stock...";
+          qtyHint.textContent = t("productMax") + " —";
+          qtyPlus.disabled = true;
+          if (cartStockMessage) cartStockMessage.textContent = "";
+          updateNotifyMe();
+          return;
+        }
+
+        qtyHint.textContent = t("productMax") + " " + stock;
+
+        if (stock <= 0) {
+          stockInfo.textContent = t("productOutOfStock");
+          stockInfo.classList.add("out-of-stock");
+          qtyPlus.disabled = true;
+          qty = 1;
+          if (cartStockMessage) cartStockMessage.textContent = "This size is out of stock.";
+          updateNotifyMe();
+          return;
+        }
+
+        if (qty > stock) {
+          qty = stock;
+        }
+
+        if (stock <= 2) {
+          stockInfo.textContent = t("productOnlyLeft", { stock });
+          stockInfo.classList.add("low-stock");
+        } else {
+          stockInfo.textContent = t("productInStock", { stock });
+        }
+
+        qtyPlus.disabled = qty >= stock;
+
+        if (cartStockMessage) cartStockMessage.textContent = "";
+        updateNotifyMe();
+      }
+
+      function updateSnipcartButton() {
+        const addBtn = document.getElementById("addToCartBtn");
+        if (!addBtn) return;
+
+        const imageUrl = new URL(PRODUCT.image, window.location.href).href;
+
+        addBtn.setAttribute("data-item-id", PRODUCT.id);
+        addBtn.setAttribute("data-item-name", PRODUCT.name);
+        addBtn.setAttribute("data-item-price", String(PRODUCT.price));
+        addBtn.setAttribute("data-item-url", "/product.html");
+        addBtn.setAttribute("data-item-image", imageUrl);
+        addBtn.setAttribute("data-item-description", "Bad Decisions hoodie");
+        addBtn.setAttribute("data-item-quantity", String(qty));
+        addBtn.setAttribute("data-item-custom1-name", "Size");
+        addBtn.setAttribute("data-item-custom1-value", selectedSize);
+        addBtn.setAttribute("data-item-custom2-name", "Color");
+        addBtn.setAttribute("data-item-custom2-value", selectedColor);
+
+        const stock = getStockForSize(selectedSize);
+
+        if (!selectedSize || stock === null || stock <= 0) {
+          addBtn.classList.add("disabled");
+          addBtn.setAttribute("aria-disabled", "true");
+        } else {
+          addBtn.classList.remove("disabled");
+          addBtn.removeAttribute("aria-disabled");
+        }
+      }
+
+      function updateTotalPrice() {
+        const qtyValue = document.getElementById("qtyValue");
+        const totalPrice = document.getElementById("totalPrice");
+
+        if (selectedSize) {
+          const stock = getStockForSize(selectedSize);
+          if (stock !== null && stock > 0 && qty > stock) {
+            qty = stock;
+          }
+        }
+
+        if (qtyValue) qtyValue.textContent = String(qty);
+        if (totalPrice) totalPrice.textContent = "€" + (PRODUCT.price * qty).toFixed(2);
+
+        updateStockInfo();
+        updateSnipcartButton();
+      }
+
+      async function handleNotifySubmit(e) {
+        e.preventDefault();
+
+        const notifyEmail = document.getElementById("notifyEmail");
+        const notifyMessage = document.getElementById("notifyMessage");
+        const notifyBtn = document.getElementById("notifyBtn");
+
+        if (!notifyEmail || !notifyMessage || !notifyBtn) return;
+
+        const email = notifyEmail.value.trim();
+
+        if (!selectedSize) {
+          notifyMessage.textContent = t("notifySelectSizeFirst");
+          notifyMessage.className = "notify-message error";
+          return;
+        }
+
+        if (!email) {
+          notifyMessage.textContent = t("notifyEnterEmail");
+          notifyMessage.className = "notify-message error";
+          return;
+        }
+
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!emailValid) {
+          notifyMessage.textContent = t("notifyValidEmail");
+          notifyMessage.className = "notify-message error";
+          return;
+        }
+
+        notifyBtn.disabled = true;
+        notifyMessage.textContent = t("notifySending");
+        notifyMessage.className = "notify-message";
+
+        try {
+          const formData = new FormData();
+          formData.append("EMAIL", email);
+          formData.append("PRODUCT", PRODUCT.name);
+          formData.append("SIZE", selectedSize);
+          formData.append("email_address_check", "");
+          formData.append("locale", "en");
+
+          await fetch(
+            "https://1742cecd.sibforms.com/serve/MUIFAAvYNRnj7e-76ojO6j4YWjdUE0UV7cAlB6seLtKDLxm9VWNU6jqsHGrHaFwvOiBznpeSiUmkayoeDF5r_BbyLlxSRTkCEvn4Nm0wIiKvYEqeil1zYmlZvUx17bdRFqZCY5PO7sK0TEPZjJEnBtmugKA_yKg1csNzmTrzCp5bGFE2Z33H6LxB6pupsa3VzrL4CcCGWwOXO5raUg==",
+            {
+              method: "POST",
+              body: formData,
+              mode: "no-cors"
+            }
+          );
+
+          notifyMessage.textContent = t("notifySuccess", { size: selectedSize });
+          notifyMessage.className = "notify-message success";
+          notifyEmail.value = "";
+
+          setTimeout(() => {
+            notifyBtn.disabled = false;
+          }, 2000);
+        } catch (error) {
+          console.error("Brevo submission error:", error);
+          notifyMessage.textContent = t("notifyError");
+          notifyMessage.className = "notify-message error";
+          notifyBtn.disabled = false;
+        }
+      }
+
+      async function initProductPage() {
+        loadCachedStock();
+        markOutOfStockSizes();
+        updateTotalPrice();
+
+const galleryTrack = document.getElementById("galleryTrack");
+const galleryViewport = document.getElementById("galleryViewport");
+const prevBtn = document.getElementById("galleryPrev");
+const nextBtn = document.getElementById("galleryNext");
+const thumbsRow2 = document.getElementById("thumbsRow2");
+const showMoreThumbs = document.getElementById("showMoreThumbs");
+const thumbs = Array.from(document.querySelectorAll(".thumb"));
+
+const sizeError = document.getElementById("sizeError");
+const addBtn = document.getElementById("addToCartBtn");
+const cartStockMessage = document.getElementById("cartStockMessage");
+const notifyBtn = document.getElementById("notifyBtn");
+
+let currentIndex = 0;
+let slideIndex = 1;
+let isAnimating = false;
+let moreOpen = false;
+let startX = 0;
+let startY = 0;
+let diffX = 0;
+let diffY = 0;
+let isDragging = false;
+let isHorizontalSwipe = false;
+
+const images = thumbs.map((thumb) => ({
+  index: Number(thumb.dataset.index),
+  src: thumb.dataset.src,
+  alt: thumb.querySelector("img")?.alt || "Product image"
+}));
+
+function buildSlider() {
+  if (!galleryTrack || images.length === 0) return;
+
+  galleryTrack.innerHTML = "";
+
+  const slides = [
+    images[images.length - 1],
+    ...images,
+    images[0]
+  ];
+
+  slides.forEach((imgData) => {
+    const slide = document.createElement("div");
+    slide.className = "gallery-slide";
+
+    const img = document.createElement("img");
+    img.src = imgData.src;
+    img.alt = imgData.alt;
+
+    slide.appendChild(img);
+    galleryTrack.appendChild(slide);
+  });
+
+  galleryTrack.style.transition = "none";
+  galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+
+  requestAnimationFrame(() => {
+    galleryTrack.style.transition = "transform .45s cubic-bezier(.22,.61,.36,1)";
+  });
+}
+
+function setActiveThumb(index) {
+  thumbs.forEach((thumb) => thumb.classList.remove("active"));
+
+  const activeThumb = document.querySelector(`.thumb[data-index="${index}"]`);
+  if (activeThumb) activeThumb.classList.add("active");
+}
+
+function openMoreRow() {
+  moreOpen = true;
+  if (thumbsRow2) thumbsRow2.classList.remove("hidden");
+  if (showMoreThumbs) showMoreThumbs.classList.add("open");
+}
+
+function closeMoreRow() {
+  moreOpen = false;
+  if (thumbsRow2) thumbsRow2.classList.add("hidden");
+  if (showMoreThumbs) showMoreThumbs.classList.remove("open");
+}
+
+function updateMoreRow(index) {
+  if (index >= 4) {
+    openMoreRow();
   } else {
-    initProductPage();
+    closeMoreRow();
   }
-})();
+}
+
+let lastArrowClick = 0;
+
+function jumpWithoutAnimation(index) {
+  if (!galleryTrack) return;
+
+  slideIndex = index;
+  galleryTrack.style.transition = "none";
+  galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+  galleryTrack.offsetHeight;
+}
+
+function moveToSlide(newSlideIndex) {
+  if (!galleryTrack) return;
+
+  const now = Date.now();
+  const fastClick = now - lastArrowClick < 180;
+  lastArrowClick = now;
+
+  slideIndex = newSlideIndex;
+
+  const speed = fastClick ? 0.22 : 0.45;
+
+  galleryTrack.style.transition = "transform " + speed + "s cubic-bezier(.22,.61,.36,1)";
+  galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+}
+
+function showImage(index) {
+  if (index < 0) index = images.length - 1;
+  if (index >= images.length) index = 0;
+
+  currentIndex = index;
+  setActiveThumb(currentIndex);
+  updateMoreRow(currentIndex);
+
+  moveToSlide(currentIndex + 1);
+}
+
+function nextImage() {
+  if (slideIndex >= images.length + 1) {
+    jumpWithoutAnimation(1);
+  }
+
+  currentIndex++;
+
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+
+  setActiveThumb(currentIndex);
+  updateMoreRow(currentIndex);
+  moveToSlide(slideIndex + 1);
+}
+
+function prevImage() {
+  if (slideIndex <= 0) {
+    jumpWithoutAnimation(images.length);
+  }
+
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+
+  setActiveThumb(currentIndex);
+  updateMoreRow(currentIndex);
+  moveToSlide(slideIndex - 1);
+}
+
+if (galleryTrack) {
+  galleryTrack.addEventListener("transitionend", () => {
+    if (slideIndex === images.length + 1) {
+      jumpWithoutAnimation(1);
+    }
+
+    if (slideIndex === 0) {
+      jumpWithoutAnimation(images.length);
+    }
+
+    galleryTrack.style.transition = "transform .45s cubic-bezier(.22,.61,.36,1)";
+    isAnimating = false;
+  });
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", prevImage);
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", nextImage);
+}
+
+thumbs.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const index = Number(btn.dataset.index);
+
+    if (btn.id === "showMoreThumbs") {
+      if (moreOpen) {
+        closeMoreRow();
+      } else {
+        openMoreRow();
+      }
+
+      showImage(4);
+      return;
+    }
+
+    showImage(index);
+  });
+});
+
+if (galleryViewport && galleryTrack) {
+  galleryViewport.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    diffX = 0;
+    diffY = 0;
+    isDragging = true;
+    isHorizontalSwipe = false;
+
+    galleryTrack.style.transition = "none";
+  }, { passive: true });
+
+  galleryViewport.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+
+    diffX = e.touches[0].clientX - startX;
+    diffY = e.touches[0].clientY - startY;
+
+    if (!isHorizontalSwipe) {
+      if (Math.abs(diffX) < 12 && Math.abs(diffY) < 12) return;
+
+      if (Math.abs(diffY) > Math.abs(diffX)) {
+        isDragging = false;
+        galleryTrack.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+        galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+        return;
+      }
+
+      isHorizontalSwipe = true;
+      document.querySelector(".gallery-main")?.classList.add("is-dragging");
+    }
+
+    e.preventDefault();
+
+    const percent = (diffX / galleryViewport.offsetWidth) * 100;
+
+    galleryTrack.style.transform =
+      "translateX(calc(-" + (slideIndex * 100) + "% + " + percent + "%))";
+  }, { passive: false });
+
+  galleryViewport.addEventListener("touchend", () => {
+    if (!isDragging) return;
+
+    document.querySelector(".gallery-main")?.classList.remove("is-dragging");
+
+    if (Math.abs(diffX) > 45) {
+      if (diffX < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+    } else {
+      galleryTrack.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+    }
+
+    isDragging = false;
+    isHorizontalSwipe = false;
+    startX = 0;
+    startY = 0;
+    diffX = 0;
+    diffY = 0;
+  });
+
+  galleryViewport.addEventListener("touchcancel", () => {
+    isDragging = false;
+    isHorizontalSwipe = false;
+    document.querySelector(".gallery-main")?.classList.remove("is-dragging");
+
+    galleryTrack.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+    galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+  });
+}
+
+buildSlider();
+setActiveThumb(0);
+    
+    
+    // 👇 ADD THIS WHOLE BLOCK RIGHT HERE
+
+const imageLightbox = document.getElementById("imageLightbox");
+const imageLightboxImg = document.getElementById("imageLightboxImg");
+const imageLightboxClose = document.getElementById("imageLightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+
+function openImageLightbox() {
+  if (!imageLightbox || !imageLightboxImg || !images[currentIndex]) return;
+
+  imageLightboxImg.src = images[currentIndex].src;
+  imageLightboxImg.setAttribute("draggable", "false");
+  imageLightboxImg.classList.remove("zoomed");
+  imageLightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeImageLightbox() {
+  if (!imageLightbox || !imageLightboxImg) return;
+
+  imageLightbox.classList.remove("open");
+  resetZoom();
+  imageLightboxImg.src = "";
+  document.body.style.overflow = "";
+
+  slideIndex = currentIndex + 1;
+
+  if (galleryTrack) {
+    galleryTrack.style.transition = "none";
+    galleryTrack.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+
+    requestAnimationFrame(() => {
+      galleryTrack.style.transition = "transform .45s cubic-bezier(.22,.61,.36,1)";
+    });
+  }
+}
+
+if (galleryViewport) {
+  galleryViewport.addEventListener("click", () => {
+    if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) return;
+    openImageLightbox();
+  });
+}
+
+if (imageLightboxClose) {
+  imageLightboxClose.addEventListener("click", closeImageLightbox);
+}
+
+  function changeLightboxImage(direction) {
+  if (!imageLightboxImg || images.length === 0) return;
+
+  imageLightboxImg.classList.add("lightbox-changing");
+
+  setTimeout(() => {
+    if (direction === "next") {
+      currentIndex++;
+      if (currentIndex >= images.length) currentIndex = 0;
+    } else {
+      currentIndex--;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+    }
+
+    setActiveThumb(currentIndex);
+    updateMoreRow(currentIndex);
+
+    resetZoom();
+    imageLightboxImg.src = images[currentIndex].src;
+
+    requestAnimationFrame(() => {
+      imageLightboxImg.classList.remove("lightbox-changing");
+    });
+  }, 160);
+}
+
+if (lightboxPrev) {
+  lightboxPrev.addEventListener("click", (e) => {
+    e.stopPropagation();
+    changeLightboxImage("prev");
+  });
+}
+
+if (lightboxNext) {
+  lightboxNext.addEventListener("click", (e) => {
+    e.stopPropagation();
+    changeLightboxImage("next");
+  });
+}
+    
+    
+if (imageLightbox) {
+  imageLightbox.addEventListener("click", (e) => {
+    if (e.target === imageLightbox) {
+      closeImageLightbox();
+    }
+  });
+}
+
+let lightboxZoomed = false;
+let lightboxDragging = false;
+let lightboxDragged = false;
+
+let lightboxPanX = 0;
+let lightboxPanY = 0;
+
+let lightboxStartX = 0;
+let lightboxStartY = 0;
+let lightboxStartPanX = 0;
+let lightboxStartPanY = 0;
+
+const LIGHTBOX_ZOOM_SCALE = 2.4;
+
+function resetZoom() {
+  lightboxZoomed = false;
+  lightboxDragging = false;
+  lightboxDragged = false;
+  lightboxPanX = 0;
+  lightboxPanY = 0;
+
+  imageLightboxImg.classList.remove("zoomed", "dragging");
+  imageLightboxImg.style.transform = "translate3d(0,0,0) scale(1)";
+}
+
+function clampLightboxPan() {
+  const box = imageLightbox.getBoundingClientRect();
+
+  const imgW = imageLightboxImg.offsetWidth;
+  const imgH = imageLightboxImg.offsetHeight;
+
+ const maxX = Math.max(120, (imgW * LIGHTBOX_ZOOM_SCALE - box.width) / 2);
+const maxY = Math.max(120, (imgH * LIGHTBOX_ZOOM_SCALE - box.height) / 2);
+
+  lightboxPanX = Math.max(-maxX, Math.min(maxX, lightboxPanX));
+  lightboxPanY = Math.max(-maxY, Math.min(maxY, lightboxPanY));
+}
+
+function updateLightboxZoom() {
+  if (lightboxZoomed) clampLightboxPan();
+
+  imageLightboxImg.style.transform = lightboxZoomed
+    ? `translate3d(${lightboxPanX}px, ${lightboxPanY}px, 0) scale(${LIGHTBOX_ZOOM_SCALE})`
+    : "translate3d(0,0,0) scale(1)";
+}
+
+if (imageLightboxImg) {
+  imageLightboxImg.setAttribute("draggable", "false");
+
+  imageLightboxImg.addEventListener("click", () => {
+
+  // DISABLE TAP ZOOM ON MOBILE
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    return;
+  }
+
+  if (lightboxDragged) return;
+
+  lightboxZoomed = !lightboxZoomed;
+
+  if (!lightboxZoomed) {
+    resetZoom();
+    return;
+  }
+
+  lightboxPanX = 0;
+  lightboxPanY = 0;
+
+  imageLightboxImg.classList.add("zoomed");
+  updateLightboxZoom();
+});
+  imageLightboxImg.addEventListener("mousedown", (e) => {
+    if (!lightboxZoomed || e.button !== 0) return;
+
+    lightboxDragging = true;
+    lightboxDragged = false;
+
+    lightboxStartX = e.clientX;
+    lightboxStartY = e.clientY;
+    lightboxStartPanX = lightboxPanX;
+    lightboxStartPanY = lightboxPanY;
+
+    imageLightboxImg.classList.add("dragging");
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!lightboxDragging) return;
+
+    const dx = e.clientX - lightboxStartX;
+    const dy = e.clientY - lightboxStartY;
+
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      lightboxDragged = true;
+    }
+
+    lightboxPanX = lightboxStartPanX + dx;
+    lightboxPanY = lightboxStartPanY + dy;
+
+    updateLightboxZoom();
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (!lightboxDragging) return;
+
+    lightboxDragging = false;
+    imageLightboxImg.classList.remove("dragging");
+
+    setTimeout(() => {
+      lightboxDragged = false;
+    }, 120);
+  });
+
+  imageLightboxImg.addEventListener("touchstart", (e) => {
+    if (!lightboxZoomed || e.touches.length !== 1) return;
+
+    lightboxDragging = true;
+    lightboxDragged = false;
+
+    lightboxStartX = e.touches[0].clientX;
+    lightboxStartY = e.touches[0].clientY;
+    lightboxStartPanX = lightboxPanX;
+    lightboxStartPanY = lightboxPanY;
+
+    imageLightboxImg.classList.add("dragging");
+  }, { passive: true });
+
+  imageLightboxImg.addEventListener("touchmove", (e) => {
+    if (!lightboxDragging || e.touches.length !== 1) return;
+
+    e.preventDefault();
+
+    const dx = e.touches[0].clientX - lightboxStartX;
+    const dy = e.touches[0].clientY - lightboxStartY;
+
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      lightboxDragged = true;
+    }
+
+    lightboxPanX = lightboxStartPanX + dx;
+    lightboxPanY = lightboxStartPanY + dy;
+
+    updateLightboxZoom();
+  }, { passive: false });
+
+  imageLightboxImg.addEventListener("touchend", () => {
+    lightboxDragging = false;
+    imageLightboxImg.classList.remove("dragging");
+
+    setTimeout(() => {
+      lightboxDragged = false;
+    }, 120);
+  });
+}
+if (imageLightboxImg) {
+  imageLightboxImg.addEventListener("click", () => {
+  if (isPanning) return;
+
+  zoomed = !zoomed;
+
+  if (!zoomed) {
+    panX = 0;
+    panY = 0;
+  }
+
+  imageLightboxImg.classList.toggle("zoomed", zoomed);
+  updateZoomTransform();
+});
+
+  imageLightboxImg.addEventListener("mousedown", (e) => {
+    if (!zoomed) return;
+
+    isPanning = false;
+    panStartX = e.clientX - panX;
+    panStartY = e.clientY - panY;
+
+    const onMouseMove = (moveEvent) => {
+  if (moveEvent.buttons !== 1) return;
+
+  isPanning = true;
+
+  const speed = 5; // increase this if you want faster
+
+panX = (moveEvent.clientX - panStartX) * speed;
+panY = (moveEvent.clientY - panStartY) * speed;
+
+  updateZoomTransform();
+};
+
+    const onMouseUp = () => {
+      setTimeout(() => {
+        isPanning = false;
+      }, 0);
+
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+  imageLightboxImg.addEventListener("touchstart", (e) => {
+    if (!zoomed || e.touches.length !== 1) return;
+
+    isPanning = false;
+    panStartX = e.touches[0].clientX - panX;
+    panStartY = e.touches[0].clientY - panY;
+  }, { passive: true });
+
+  imageLightboxImg.addEventListener("touchmove", (e) => {
+    if (!zoomed || e.touches.length !== 1) return;
+
+    e.preventDefault();
+    isPanning = true;
+
+    const speed = 5;
+
+panX = (e.touches[0].clientX - panStartX) * speed;
+panY = (e.touches[0].clientY - panStartY) * speed;
+    updateZoomTransform();
+  }, { passive: false });
+
+  imageLightboxImg.addEventListener("touchend", () => {
+    setTimeout(() => {
+      isPanning = false;
+    }, 0);
+  });
+}
+
+
+
+
+
+    // MOBILE ONLY: pinch zoom + smooth pan image, not whole page
+if (imageLightbox && imageLightboxImg) {
+  let mobilePinchStartDistance = 0;
+  let mobilePinchStartScale = 1;
+  let mobileScale = 1;
+
+  let mobilePanX = 0;
+  let mobilePanY = 0;
+  let mobileStartX = 0;
+  let mobileStartY = 0;
+  let mobileStartPanX = 0;
+  let mobileStartPanY = 0;
+  let mobilePanning = false;
+
+  function getMobilePinchDistance(touches) {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function isMobileLightbox() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function clampMobilePan() {
+    const box = imageLightbox.getBoundingClientRect();
+    const imgW = imageLightboxImg.offsetWidth;
+    const imgH = imageLightboxImg.offsetHeight;
+
+    const maxX = Math.max(0, (imgW * mobileScale - box.width) / 2);
+    const maxY = Math.max(0, (imgH * mobileScale - box.height) / 2);
+
+    mobilePanX = Math.max(-maxX, Math.min(maxX, mobilePanX));
+    mobilePanY = Math.max(-maxY, Math.min(maxY, mobilePanY));
+  }
+
+  function updateMobileTransform() {
+    clampMobilePan();
+
+    imageLightboxImg.style.transform =
+      `translate3d(${mobilePanX}px, ${mobilePanY}px, 0) scale(${mobileScale})`;
+
+    imageLightboxImg.classList.toggle("zoomed", mobileScale > 1);
+  }
+
+  imageLightbox.addEventListener("touchmove", (e) => {
+    if (!isMobileLightbox()) return;
+    if (!imageLightbox.classList.contains("open")) return;
+
+    e.preventDefault();
+  }, { passive: false });
+
+  imageLightboxImg.addEventListener("touchstart", (e) => {
+    if (!isMobileLightbox()) return;
+
+    if (e.touches.length === 2) {
+      mobilePanning = false;
+      mobilePinchStartDistance = getMobilePinchDistance(e.touches);
+      mobilePinchStartScale = mobileScale;
+      return;
+    }
+
+    if (e.touches.length === 1 && mobileScale > 1) {
+      mobilePanning = true;
+
+      mobileStartX = e.touches[0].clientX;
+      mobileStartY = e.touches[0].clientY;
+      mobileStartPanX = mobilePanX;
+      mobileStartPanY = mobilePanY;
+    }
+  }, { passive: false });
+
+  imageLightboxImg.addEventListener("touchmove", (e) => {
+    if (!isMobileLightbox()) return;
+
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const currentDistance = getMobilePinchDistance(e.touches);
+
+      mobileScale =
+        mobilePinchStartScale * (currentDistance / mobilePinchStartDistance);
+
+      mobileScale = Math.max(1, Math.min(4, mobileScale));
+
+      if (mobileScale === 1) {
+        mobilePanX = 0;
+        mobilePanY = 0;
+      }
+
+      updateMobileTransform();
+      return;
+    }
+
+    if (e.touches.length === 1 && mobilePanning && mobileScale > 1) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const dx = e.touches[0].clientX - mobileStartX;
+      const dy = e.touches[0].clientY - mobileStartY;
+
+      mobilePanX = mobileStartPanX + dx;
+      mobilePanY = mobileStartPanY + dy;
+
+      updateMobileTransform();
+    }
+  }, { passive: false });
+
+  imageLightboxImg.addEventListener("touchend", () => {
+    mobilePanning = false;
+
+    if (mobileScale <= 1.02) {
+      mobileScale = 1;
+      mobilePanX = 0;
+      mobilePanY = 0;
+      updateMobileTransform();
+    }
+  });
+
+
+let lightboxSwipeStartX = 0;
+let lightboxSwipeStartY = 0;
+let lightboxSwipeDiffX = 0;
+let lightboxSwipeDiffY = 0;
+let lightboxSwiping = false;
+
+imageLightbox.addEventListener("touchstart", (e) => {
+  if (!isMobileLightbox()) return;
+  if (!imageLightbox.classList.contains("open")) return;
+  if (e.touches.length !== 1) return;
+  if (mobileScale > 1) return;
+
+  lightboxSwipeStartX = e.touches[0].clientX;
+  lightboxSwipeStartY = e.touches[0].clientY;
+  lightboxSwipeDiffX = 0;
+  lightboxSwipeDiffY = 0;
+  lightboxSwiping = true;
+}, { passive: true });
+
+imageLightbox.addEventListener("touchmove", (e) => {
+  if (!lightboxSwiping) return;
+  if (mobileScale > 1) return;
+
+  lightboxSwipeDiffX = e.touches[0].clientX - lightboxSwipeStartX;
+  lightboxSwipeDiffY = e.touches[0].clientY - lightboxSwipeStartY;
+
+  if (Math.abs(lightboxSwipeDiffX) > Math.abs(lightboxSwipeDiffY)) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+imageLightbox.addEventListener("touchend", () => {
+  if (!lightboxSwiping) return;
+
+  if (
+    Math.abs(lightboxSwipeDiffX) > 55 &&
+    Math.abs(lightboxSwipeDiffX) > Math.abs(lightboxSwipeDiffY)
+  ) {
+    if (lightboxSwipeDiffX < 0) {
+      changeLightboxImage("next");
+    } else {
+      changeLightboxImage("prev");
+    }
+  }
+
+  lightboxSwiping = false;
+  lightboxSwipeStartX = 0;
+  lightboxSwipeStartY = 0;
+  lightboxSwipeDiffX = 0;
+  lightboxSwipeDiffY = 0;
+});
+
+  const oldResetZoom = resetZoom;
+  resetZoom = function () {
+    mobileScale = 1;
+    mobilePanX = 0;
+    mobilePanY = 0;
+    mobilePanning = false;
+    oldResetZoom();
+  };
+}
+
+
+
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeImageLightbox();
+  }
+});
+
+        document.querySelectorAll(".size-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".size-btn").forEach((x) => x.classList.remove("active"));
+            btn.classList.add("active");
+
+            selectedSize = btn.dataset.size || "";
+            qty = 1;
+
+            const selected = document.getElementById("selectedSize");
+            if (selected) selected.textContent = selectedSize;
+
+            if (sizeError) sizeError.style.display = "none";
+            if (cartStockMessage) cartStockMessage.textContent = "";
+
+            updateTotalPrice();
+          });
+        });
+
+        document.querySelectorAll(".color-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".color-btn").forEach((x) => x.classList.remove("active"));
+            btn.classList.add("active");
+
+            selectedColor = btn.dataset.color || "Navy Blue";
+
+            const selected = document.getElementById("selectedColor");
+            if (selected) selected.textContent = t("navyBlue");
+
+            updateSnipcartButton();
+          });
+        });
+
+        document.getElementById("qtyMinus")?.addEventListener("click", () => {
+          qty = Math.max(1, qty - 1);
+          updateTotalPrice();
+        });
+
+        document.getElementById("qtyPlus")?.addEventListener("click", () => {
+          if (!selectedSize) return;
+
+          const stock = getStockForSize(selectedSize);
+          if (stock === null || stock <= 0) return;
+
+          qty = Math.min(stock, qty + 1);
+          updateTotalPrice();
+        });
+
+        addBtn?.addEventListener("click", (e) => {
+          const stock = getStockForSize(selectedSize);
+
+          if (!selectedSize) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (sizeError) sizeError.style.display = "block";
+            if (cartStockMessage) cartStockMessage.textContent = "Please select a size.";
+            return;
+          }
+
+          if (stock === null) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (cartStockMessage) {
+              cartStockMessage.textContent = "Stock is still loading. Please wait a moment and try again.";
+            }
+            return;
+          }
+
+          if (stock <= 0) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (cartStockMessage) cartStockMessage.textContent = t("productThisSizeOut");
+            updateNotifyMe();
+            return;
+          }
+
+          if (qty > stock) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            qty = stock;
+            updateTotalPrice();
+
+            if (cartStockMessage) {
+              cartStockMessage.textContent = "You can only add " + stock + " of this size.";
+            }
+            return;
+          }
+
+          if (cartStockMessage) cartStockMessage.textContent = "";
+        });
+
+        if (notifyBtn) {
+          notifyBtn.addEventListener("click", handleNotifySubmit);
+        }
+
+        const freshLoaded = await loadStock(2);
+
+        if (freshLoaded) {
+          markOutOfStockSizes();
+          updateTotalPrice();
+        } else {
+          markOutOfStockSizes();
+          updateTotalPrice();
+          console.warn("Fresh stock request failed. Using cached stock or unavailable state.");
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initProductPage);
+      } else {
+        initProductPage();
+      }
+    })();
+        
+        
+        const viewAllLink = document.getElementById("viewAllReviews");
+const reviewsSection = document.getElementById("reviews");
+
+if (viewAllLink && reviewsSection) {
+  viewAllLink.addEventListener("click", () => {
+    reviewsSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+}
+  </script>
+    
+
+    
+      <div class="image-lightbox" id="imageLightbox">
+
+    <button class="image-lightbox-close" id="imageLightboxClose" type="button">×</button>
+
+    <button class="gallery-arrow gallery-arrow-left" id="lightboxPrev" type="button">
+      &#10094;
+    </button>
+
+    <img class="image-lightbox-img" id="imageLightboxImg" src="" alt="Product image">
+
+    <button class="gallery-arrow gallery-arrow-right" id="lightboxNext" type="button">
+      &#10095;
+    </button>
+
+</div>
+
+  <!-- ✅ Snipcart tracking AFTER -->
+  <!-- ✅ Snipcart tracking AFTER -->
+   <script>
+  document.addEventListener("snipcart.ready", function () {
+    try {
+      function getSelectedQuantity() {
+        const qtyInput =
+          document.querySelector("#qty") ||
+          document.querySelector("[name='quantity']") ||
+          document.querySelector(".qty-input") ||
+          document.querySelector(".quantity-input");
+
+        return Number(qtyInput?.value || 1);
+      }
+
+      Snipcart.events.on("item.added", function (cartItem) {
+        const quantity = getSelectedQuantity();
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "add_to_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("item.removed", function (cartItem) {
+        const quantity = Number(cartItem.quantity || cartItem.qty || 1);
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "remove_from_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("cart.opened", function () {
+        if (typeof gtag === "function") {
+          gtag("event", "view_cart");
+        }
+      });
+
+      let checkoutTracked = false;
+
+      function trackCheckoutByUrl() {
+        if (window.location.hash.includes("checkout") && !checkoutTracked) {
+          checkoutTracked = true;
+
+          if (typeof gtag === "function") {
+            gtag("event", "begin_checkout");
+          }
+        }
+      }
+
+      window.addEventListener("hashchange", trackCheckoutByUrl);
+      trackCheckoutByUrl();
+
+    } catch (error) {
+      console.log("GA Snipcart tracking error:", error);
+    }
+  });
 </script>
     
 </body>

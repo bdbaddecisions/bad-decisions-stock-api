@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8DDZZEREGT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8GDDZEREGT');
+</script>
+    
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n-title="shopTitle">Shop - Bad Decisions</title>
     
-    <link rel="icon" type="image/png" href="Slike/Logo_bd_no_bg_black.png">
+  <link rel="icon" type="image/png" href="Slike/Logo_bd_no_bg_black.png">
   <meta name="description" content="Shop premium streetwear hoodies at Bad Decisions." />
 
   <link rel="stylesheet" href="style.css" />
@@ -136,32 +147,36 @@
     }
 
     .bd-track{
-      height:100%;
-      width:100%;
-      display:flex;
-      transition: transform .45s cubic-bezier(.2,.8,.2,1);
-      will-change: transform;
-    }
+  height:100%;
+  width:100%;
+  display:flex;
+  gap:0;
+  will-change:transform;
+  backface-visibility:hidden;
+}
 
-    .bd-track.no-transition{
-      transition: none !important;
-    }
+.bd-slide{
+  flex:0 0 100%;
+  min-width:100%;
+  max-width:100%;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+  background:#fff;
+}
 
-    .bd-slide{
-      flex:0 0 100%;
-      height:100%;
-      user-select:none;
-    }
-
-    .bd-slide img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      user-select:none;
-      -webkit-user-drag:none;
-      pointer-events:none;
-    }
+.bd-slide img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+  backface-visibility:hidden;
+}
+      
 
     .bd-arrow{
       position:absolute;
@@ -224,183 +239,187 @@
        MOBILE ONLY
     ========================== */
     @media (max-width: 700px){
-  .page-hero{
-    padding: calc(80px + 28px) 0 1.5rem;
-  }
+      .page-hero{
+        padding: calc(80px + 28px) 0 1.5rem;
+      }
 
-  .hero-row{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 1rem;
-  }
+      .hero-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 1rem;
+      }
 
-  .hero-row > div:first-child{
-    flex: none;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
+      .hero-row > div:first-child{
+        flex: none;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
 
-  .section-subtitle{
-    margin: 0 0 .35rem 0;
-    width: 100%;
-    text-align: center;
-  }
+      .section-subtitle{
+        margin: 0 0 .35rem 0;
+        width: 100%;
+        text-align: center;
+      }
 
-  .page-title{
-    margin: 0;
-    text-align: left;
-    font-size: 2.1rem;
-    line-height: 1.05;
-  }
+      .page-title{
+        margin: 0;
+        text-align: left;
+        font-size: 2.1rem;
+        line-height: 1.05;
+      }
 
-  .product-count{
-    white-space: nowrap;
-    text-align: right;
-    margin-bottom: .15rem;
-  }
+      .product-count{
+        white-space: nowrap;
+        text-align: right;
+        margin-bottom: .15rem;
+      }
 
-  .shop-section{
-    padding: 1rem 0 6rem;
-  }
+      .shop-section{
+        padding: 1rem 0 6rem;
+      }
 
-  .bd-grid{
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
+      .bd-grid{
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
 
-  .bd-card{
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
-  }
+      .bd-card{
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+      }
 
-  .bd-card:hover{
-    box-shadow: none;
-    transform: none;
-  }
+      .bd-card:hover{
+        box-shadow: none;
+        transform: none;
+      }
 
-  .bd-card-media{
-    touch-action: pan-y;
-  }
-
-  .bd-arrow{
-    display: none;
-  }
-
-  .bd-card-meta{
-    padding-top: 12px;
-  }
+      .bd-card-media{
+  touch-action: auto;
+  cursor: grab;
 }
+
+.bd-card-media.is-dragging{
+  cursor: grabbing;
+}
+
+      .bd-arrow{
+        display: none;
+      }
+
+      .bd-card-meta{
+        padding-top: 12px;
+      }
+    }
   </style>
 </head>
 
 <body>
     
-    <script>
-  window.SnipcartSettings = {
-    publicApiKey: 'OWMwZmM4MDYtYTdkOC00Y2NkLWE3ZjAtOWQ4NjVlMTQ5N2JkNjM5MDYxNTYxOTI5NzI3MTcw',
-    modalStyle: "side",
-    currency: "eur"
-  };
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: 'OWMwZmM4MDYtYTdkOC00Y2NkLWE3ZjAtOWQ4NjVlMTQ5N2JkNjM5MDYxNTYxOTI5NzI3MTcw',
+      modalStyle: "side",
+      currency: "eur"
+    };
 
-  (() => {
-    var c, d;
-    (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
+    (() => {
+      var c, d;
+      (d = (c = window.SnipcartSettings).version) != null || (c.version = "3.0");
 
-    var s, S;
-    (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
+      var s, S;
+      (S = (s = window.SnipcartSettings).timeoutDuration) != null || (s.timeoutDuration = 2750);
 
-    var l, p;
-    (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
+      var l, p;
+      (p = (l = window.SnipcartSettings).domain) != null || (l.domain = "cdn.snipcart.com");
 
-    var w, u;
-    (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
+      var w, u;
+      (u = (w = window.SnipcartSettings).protocol) != null || (w.protocol = "https");
 
-    var f =
-      window.SnipcartSettings.version.includes("v3.0.0-ci") ||
-      (window.SnipcartSettings.version != "3.0" &&
-        window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
-          numeric: true,
-          sensitivity: "base"
-        }) === -1);
+      var f =
+        window.SnipcartSettings.version.includes("v3.0.0-ci") ||
+        (window.SnipcartSettings.version != "3.0" &&
+          window.SnipcartSettings.version.localeCompare("3.4.0", void 0, {
+            numeric: true,
+            sensitivity: "base"
+          }) === -1);
 
-    var m = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
-    window.LoadSnipcart = o;
+      var m = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+      window.LoadSnipcart = o;
 
-    document.readyState === "loading"
-      ? document.addEventListener("DOMContentLoaded", r)
-      : r();
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", r)
+        : r();
 
-    function r() {
-      window.SnipcartSettings.loadStrategy
-        ? window.SnipcartSettings.loadStrategy === "on-user-interaction" &&
-          (m.forEach(t => document.addEventListener(t, o)),
-          setTimeout(o, window.SnipcartSettings.timeoutDuration))
-        : o();
-    }
-
-    var a = false;
-
-    function o() {
-      if (a) return;
-      a = true;
-
-      let t = document.getElementsByTagName("head")[0],
-          e = document.querySelector("#snipcart"),
-          i = document.querySelector(`script[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),
-          n = document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);
-
-      if (!e) {
-        e = document.createElement("div");
-        e.id = "snipcart";
-        e.setAttribute("hidden", "true");
-        document.body.appendChild(e);
+      function r() {
+        window.SnipcartSettings.loadStrategy
+          ? window.SnipcartSettings.loadStrategy === "on-user-interaction" &&
+            (m.forEach(t => document.addEventListener(t, o)),
+            setTimeout(o, window.SnipcartSettings.timeoutDuration))
+          : o();
       }
 
-      v(e);
+      var a = false;
 
-      if (!i) {
-        i = document.createElement("script");
-        i.src = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`;
-        i.async = true;
-        t.appendChild(i);
+      function o() {
+        if (a) return;
+        a = true;
+
+        let t = document.getElementsByTagName("head")[0],
+            e = document.querySelector("#snipcart"),
+            i = document.querySelector(`script[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),
+            n = document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);
+
+        if (!e) {
+          e = document.createElement("div");
+          e.id = "snipcart";
+          e.setAttribute("hidden", "true");
+          document.body.appendChild(e);
+        }
+
+        v(e);
+
+        if (!i) {
+          i = document.createElement("script");
+          i.src = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`;
+          i.async = true;
+          t.appendChild(i);
+        }
+
+        if (!n) {
+          n = document.createElement("link");
+          n.rel = "stylesheet";
+          n.type = "text/css";
+          n.href = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`;
+          t.prepend(n);
+        }
+
+        m.forEach(g => document.removeEventListener(g, o));
       }
 
-      if (!n) {
-        n = document.createElement("link");
-        n.rel = "stylesheet";
-        n.type = "text/css";
-        n.href = `${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`;
-        t.prepend(n);
-      }
+      function v(t) {
+        if (!f) return;
 
-      m.forEach(g => document.removeEventListener(g, o));
-    }
-
-    function v(t) {
-      if (!f) return;
-
-      t.dataset.apiKey = window.SnipcartSettings.publicApiKey;
-      if (window.SnipcartSettings.addProductBehavior) {
-        t.dataset.configAddProductBehavior = window.SnipcartSettings.addProductBehavior;
+        t.dataset.apiKey = window.SnipcartSettings.publicApiKey;
+        if (window.SnipcartSettings.addProductBehavior) {
+          t.dataset.configAddProductBehavior = window.SnipcartSettings.addProductBehavior;
+        }
+        if (window.SnipcartSettings.modalStyle) {
+          t.dataset.configModalStyle = window.SnipcartSettings.modalStyle;
+        }
+        if (window.SnipcartSettings.currency) {
+          t.dataset.currency = window.SnipcartSettings.currency;
+        }
+        if (window.SnipcartSettings.templatesUrl) {
+          t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl;
+        }
       }
-      if (window.SnipcartSettings.modalStyle) {
-        t.dataset.configModalStyle = window.SnipcartSettings.modalStyle;
-      }
-      if (window.SnipcartSettings.currency) {
-        t.dataset.currency = window.SnipcartSettings.currency;
-      }
-      if (window.SnipcartSettings.templatesUrl) {
-        t.dataset.templatesUrl = window.SnipcartSettings.templatesUrl;
-      }
-    }
-  })();
-</script>
-    
+    })();
+  </script>
     
   <div id="cartToast" class="cart-toast" role="status" aria-live="polite"></div>
 
@@ -409,23 +428,19 @@
     <div class="container">
       <nav class="nav">
 
-        <!-- Logo -->
-        <a href="index.html" class="logo" aria-label="Bad Decisions Home">
+        <a href="home.html" class="logo" aria-label="Bad Decisions Home">
           <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo-img">
         </a>
 
-        <!-- Desktop Navigation -->
         <nav class="nav-desktop" aria-label="Primary navigation">
-          <a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
+          <a href="home.html" class="nav-link" data-i18n="navHome">Home</a>
           <a href="shop.html" class="nav-link active" data-i18n="navShop">Shop</a>
           <a href="about.html" class="nav-link" data-i18n="navAbout">About</a>
           <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
         </nav>
 
-        <!-- Right side actions -->
         <div class="nav-actions">
 
-          <!-- Language dropdown -->
           <div class="lang-switcher" id="langSwitcher">
             <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
               <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -452,27 +467,24 @@
             </div>
           </div>
 
-          <!-- Mobile menu button -->
           <button class="menu-toggle" id="menuToggle" type="button"
             aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
             <span class="line line-1"></span>
             <span class="line line-2"></span>
           </button>
 
-          <!-- Cart -->
           <a href="#" class="bd-cart snipcart-checkout" aria-label="Open cart">
-  <img src="Slike/cart.png" alt="Cart" class="bd-cart-icon">
-  <span class="bd-cart-badge snipcart-items-count">0</span>
-</a>
+            <img src="Slike/cart.png" alt="Cart" class="bd-cart-icon">
+            <span class="bd-cart-badge snipcart-items-count">0</span>
+          </a>
 
         </div>
       </nav>
     </div>
 
-    <!-- Mobile Navigation Menu -->
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
       <div class="mobile-menu-inner">
-        <a href="index.html" class="mobile-link" data-i18n="navHome">Home</a>
+        <a href="home.html" class="mobile-link" data-i18n="navHome">Home</a>
         <a href="shop.html" class="mobile-link active" data-i18n="navShop">Shop</a>
         <a href="about.html" class="mobile-link" data-i18n="navAbout">About</a>
         <a href="contact.html" class="mobile-link" data-i18n="navContact">Contact</a>
@@ -496,12 +508,15 @@
     <div class="container">
       <div class="bd-grid" id="productsGrid">
         <a class="bd-card" href="product.html?id=8">
-          <div class="bd-card-media bd-slider" data-start-index="0">
+          <div class="bd-card-media bd-slider">
             <div class="bd-track">
-              <div class="bd-slide"><img src="Slike/product_slika.jpeg" alt="Bad decisions hoodie image 1"></div>
-              <div class="bd-slide"><img src="Slike/product_slika2.JPG" alt="Bad decisions hoodie image 2"></div>
-              <div class="bd-slide"><img src="Slike/product_slika3.jpeg" alt="Bad decisions hoodie image 3"></div>
-              <div class="bd-slide"><img src="Slike/product_slika4.png" alt="Bad decisions hoodie image 4"></div>
+              <div class="bd-slide"><img src="Slike/product_front.png" alt="Bad decisions hoodie image 1"></div>
+              <div class="bd-slide"><img src="Slike/product_back.png" alt="Bad decisions hoodie image 2"></div>
+              <div class="bd-slide"><img src="Slike/4%20(2).JPG" alt="Bad decisions hoodie image 3"></div>
+              <div class="bd-slide"><img src="Slike/1%20%E2%80%93%20kopija.JPG" alt="Bad decisions hoodie image 4"></div>
+              <div class="bd-slide"><img src="Slike/detail2.JPG" alt="Bad decisions hoodie image 5"></div>
+              <div class="bd-slide"><img src="Slike/hotel1.JPG" alt="Bad decisions hoodie image 6"></div>
+              <div class="bd-slide"><img src="Slike/zid1.JPG" alt="Bad decisions hoodie image 7"></div>
             </div>
 
             <button class="bd-arrow bd-arrow-left" type="button" aria-label="Previous image">←</button>
@@ -523,7 +538,7 @@
       <div class="bd-footer__grid">
 
         <div class="bd-footer__brand">
-          <a href="index.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
+          <a href="home.html" class="bd-footer__logo" data-i18n="footerBrand">BAD DECISIONS</a>
           <p class="bd-footer__tagline" data-i18n-html="footerTagline">
             Premium hoodies for those who make<br>
             moves, not excuses.
@@ -577,7 +592,7 @@
           </a>
 
           <a class="bd-footer__icon"
-             href="https://www.tiktok.com/@bd.bad.decisions"
+             href="https://www.tiktok.com/@bad.decisions_official"
              target="_blank"
              rel="noopener noreferrer"
              aria-label="TikTok">
@@ -622,176 +637,269 @@
   <script src="script.js"></script>
 
   <script>
-(function(){
-
+(function () {
   const sliders = document.querySelectorAll(".bd-slider");
+  const isPhone = () => window.matchMedia("(max-width: 700px)").matches;
 
   sliders.forEach((slider) => {
+    const track = slider.querySelector(".bd-track");
+    const btnPrev = slider.querySelector(".bd-arrow-left");
+    const btnNext = slider.querySelector(".bd-arrow-right");
 
-    const track  = slider.querySelector(".bd-track");
-    const slides = slider.querySelectorAll(".bd-slide");
-    const prev   = slider.querySelector(".bd-arrow-left");
-    const next   = slider.querySelector(".bd-arrow-right");
+    if (!track) return;
 
-    if(!track || slides.length === 0) return;
+    const originalSlides = Array.from(track.children);
+    const count = originalSlides.length;
 
-    const total = slides.length;
-    let current = 0;
+    if (count <= 1) return;
 
-    const render = () => {
-      track.style.transform = `translateX(-${current * 100}%)`;
-    };
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[count - 1].cloneNode(true);
 
-    /* =========================
-       DESKTOP (UNCHANGED)
-    ========================== */
-    if(window.innerWidth > 700){
-
-      const norm = (i) => ((i % total) + total) % total;
-
-      const go = (i) => {
-        current = norm(i);
-        render();
-      };
-
-      prev?.addEventListener("click",(e)=>{
-        e.preventDefault();
-        e.stopPropagation();
-        go(current-1);
-      });
-
-      next?.addEventListener("click",(e)=>{
-        e.preventDefault();
-        e.stopPropagation();
-        go(current+1);
-      });
-
-      slider.addEventListener("mouseenter",()=>{
-        track.style.transform = `translateX(-${((current+1)%total)*100}%)`;
-      });
-
-      slider.addEventListener("mouseleave",()=>{
-        render();
-      });
-
-      render();
-      return;
-    }
-
-    /* =========================
-       MOBILE (FIXED)
-    ========================== */
-
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone  = slides[total - 1].cloneNode(true);
+    firstClone.setAttribute("data-clone", "true");
+    lastClone.setAttribute("data-clone", "true");
 
     track.appendChild(firstClone);
-    track.insertBefore(lastClone, slides[0]);
+    track.insertBefore(lastClone, track.firstChild);
 
-    const allSlides = track.querySelectorAll(".bd-slide");
-    current = 1;
-
-    let isAnimating = false;
-
-    const setPosition = (animate = true) => {
-      track.style.transition = animate
-        ? "transform .45s cubic-bezier(.2,.8,.2,1)"
-        : "none";
-      track.style.transform = `translateX(-${current * 100}%)`;
-    };
-
-    setPosition(false);
-
-    const nextSlide = () => {
-      if(isAnimating) return;
-      isAnimating = true;
-      current++;
-      setPosition(true);
-    };
-
-    const prevSlide = () => {
-      if(isAnimating) return;
-      isAnimating = true;
-      current--;
-      setPosition(true);
-    };
-
-    track.addEventListener("transitionend", () => {
-      if(current === allSlides.length - 1){
-        current = 1;
-        setPosition(false);
-      }
-
-      if(current === 0){
-        current = allSlides.length - 2;
-        setPosition(false);
-      }
-
-      isAnimating = false;
-    });
+    let currentIndex = 1;
+    let realIndex = 0;
+    let lastArrowClick = 0;
 
     let startX = 0;
     let startY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let isSwiping = false;
+    let diffX = 0;
+    let diffY = 0;
+    let isDragging = false;
+    let isHorizontalSwipe = false;
     let moved = false;
 
-    slider.addEventListener("touchstart", (e) => {
-      const touch = e.touches[0];
-      startX = touch.clientX;
-      startY = touch.clientY;
-      currentX = touch.clientX;
-      currentY = touch.clientY;
-      isSwiping = false;
-      moved = false;
-    }, { passive: true });
+    function setPosition(withTransition = true, speed = 0.45) {
+      track.style.transition = withTransition
+        ? "transform " + speed + "s cubic-bezier(.22,.61,.36,1)"
+        : "none";
 
-    slider.addEventListener("touchmove", (e) => {
-      const touch = e.touches[0];
-      currentX = touch.clientX;
-      currentY = touch.clientY;
+      track.style.transform = "translateX(-" + (currentIndex * slider.offsetWidth) + "px)";
+    }
 
-      const diffX = Math.abs(currentX - startX);
-      const diffY = Math.abs(currentY - startY);
+    function jumpWithoutAnimation(index) {
+      currentIndex = index;
+      setPosition(false);
+      track.offsetHeight;
+    }
 
-      /* only treat as swipe if clearly horizontal */
-      if(diffX > 35 && diffX > diffY * 1.2){
-        isSwiping = true;
-      }
-    }, { passive: true });
+    function moveToSlide(newIndex) {
+      const now = Date.now();
+      const fastClick = now - lastArrowClick < 180;
+      lastArrowClick = now;
 
-    slider.addEventListener("touchend", () => {
-      const diff = currentX - startX;
+      currentIndex = newIndex;
+      setPosition(true, fastClick ? 0.22 : 0.45);
+    }
 
-      if(isSwiping && Math.abs(diff) > 50){
-        moved = true;
+    function goNext() {
+      if (currentIndex >= count + 1) jumpWithoutAnimation(1);
 
-        if(diff < 0){
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-      }
+      realIndex++;
+      if (realIndex >= count) realIndex = 0;
 
-      startX = 0;
-      startY = 0;
-      currentX = 0;
-      currentY = 0;
-      isSwiping = false;
+      moveToSlide(currentIndex + 1);
+    }
+
+    function goPrev() {
+      if (currentIndex <= 0) jumpWithoutAnimation(count);
+
+      realIndex--;
+      if (realIndex < 0) realIndex = count - 1;
+
+      moveToSlide(currentIndex - 1);
+    }
+
+    function stopLink(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    btnPrev?.addEventListener("click", (e) => {
+      stopLink(e);
+      goPrev();
     });
 
+    btnNext?.addEventListener("click", (e) => {
+      stopLink(e);
+      goNext();
+    });
+
+    track.addEventListener("transitionend", (e) => {
+      if (e.propertyName !== "transform") return;
+
+      const totalSlides = track.children.length;
+
+      if (currentIndex === totalSlides - 1) jumpWithoutAnimation(1);
+      if (currentIndex === 0) jumpWithoutAnimation(totalSlides - 2);
+
+      track.style.transition = "transform .45s cubic-bezier(.22,.61,.36,1)";
+    });
+
+    function onTouchStart(e) {
+      if (!isPhone()) return;
+      if (e.touches.length !== 1) return;
+
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      diffX = 0;
+      diffY = 0;
+      isDragging = true;
+      isHorizontalSwipe = false;
+      moved = false;
+
+      track.style.transition = "none";
+    }
+
+    function onTouchMove(e) {
+      if (!isDragging || !isPhone()) return;
+
+      diffX = e.touches[0].clientX - startX;
+      diffY = e.touches[0].clientY - startY;
+
+      if (!isHorizontalSwipe) {
+        if (Math.abs(diffX) < 12 && Math.abs(diffY) < 12) return;
+
+        if (Math.abs(diffY) > Math.abs(diffX)) {
+          isDragging = false;
+          setPosition(true, 0.3);
+          return;
+        }
+
+        isHorizontalSwipe = true;
+        moved = true;
+        slider.classList.add("is-dragging");
+      }
+
+      e.preventDefault();
+
+      const percent = (diffX / slider.offsetWidth) * 100;
+
+      track.style.transform =
+        "translateX(" + ((-currentIndex * slider.offsetWidth) + diffX) + "px)";
+    }
+
+    function onTouchEnd() {
+      if (!isDragging || !isPhone()) return;
+
+      slider.classList.remove("is-dragging");
+
+      const threshold = 45;
+
+      if (Math.abs(diffX) > threshold) {
+        diffX < 0 ? goNext() : goPrev();
+      } else {
+        setPosition(true, 0.3);
+      }
+
+      isDragging = false;
+      startX = 0;
+      startY = 0;
+      diffX = 0;
+      diffY = 0;
+      isHorizontalSwipe = false;
+    }
+
+    slider.addEventListener("touchstart", onTouchStart, { passive: true });
+    slider.addEventListener("touchmove", onTouchMove, { passive: false });
+    slider.addEventListener("touchend", onTouchEnd);
+    slider.addEventListener("touchcancel", onTouchEnd);
+
     slider.closest(".bd-card")?.addEventListener("click", (e) => {
-      if(moved){
+      if (moved) {
         e.preventDefault();
         e.stopPropagation();
         moved = false;
       }
     }, true);
 
+    setPosition(false);
   });
-
 })();
+</script>
+  
+  <!-- ✅ Snipcart tracking AFTER -->
+   <script>
+  document.addEventListener("snipcart.ready", function () {
+    try {
+      function getSelectedQuantity() {
+        const qtyInput =
+          document.querySelector("#qty") ||
+          document.querySelector("[name='quantity']") ||
+          document.querySelector(".qty-input") ||
+          document.querySelector(".quantity-input");
+
+        return Number(qtyInput?.value || 1);
+      }
+
+      Snipcart.events.on("item.added", function (cartItem) {
+        const quantity = getSelectedQuantity();
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "add_to_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("item.removed", function (cartItem) {
+        const quantity = Number(cartItem.quantity || cartItem.qty || 1);
+        const price = Number(cartItem.price || 0);
+
+        if (typeof gtag === "function") {
+          gtag("event", "remove_from_cart", {
+            currency: "EUR",
+            value: price * quantity,
+            items: [
+              {
+                item_name: cartItem.name || "Product",
+                price: price,
+                quantity: quantity
+              }
+            ]
+          });
+        }
+      });
+
+      Snipcart.events.on("cart.opened", function () {
+        if (typeof gtag === "function") {
+          gtag("event", "view_cart");
+        }
+      });
+
+      let checkoutTracked = false;
+
+      function trackCheckoutByUrl() {
+        if (window.location.hash.includes("checkout") && !checkoutTracked) {
+          checkoutTracked = true;
+
+          if (typeof gtag === "function") {
+            gtag("event", "begin_checkout");
+          }
+        }
+      }
+
+      window.addEventListener("hashchange", trackCheckoutByUrl);
+      trackCheckoutByUrl();
+
+    } catch (error) {
+      console.log("GA Snipcart tracking error:", error);
+    }
+  });
 </script>
     
 </body>

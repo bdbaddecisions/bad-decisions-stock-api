@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave a Review - Bad Decisions</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f7f7f7;
+      margin:0;
+      padding:40px 20px;
+      color:#111;
+    }
+
+    .review-page{
+      max-width:680px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:18px;
+      padding:32px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:32px;
+    }
+
+    p{
+      color:#555;
+      line-height:1.6;
+    }
+
+    .review-form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:14px 16px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      font-size:15px;
+      box-sizing:border-box;
+    }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    button{
+      height:48px;
+      border:0;
+      border-radius:12px;
+      background:#111;
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      font-size:15px;
+    }
+
+    button:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
+
+    .msg{
+      margin-top:14px;
+      font-size:14px;
+      min-height:20px;
+    }
+
+    .success{ color:#15803d; font-weight:700; }
+    .error{ color:#c62828; font-weight:700; }
+
+    .hidden{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="review-page">
+    <h1>Leave a review</h1>
+    <p id="reviewIntro">Checking your review link...</p>
+
+    <form id="verifiedReviewForm" class="review-form hidden">
+      <input type="text" id="reviewName" placeholder="Your name" maxlength="50" required />
+      
+      <select id="reviewRating" required>
+        <option value="">Select rating</option>
+        <option value="5">5 ★</option>
+        <option value="4">4 ★</option>
+        <option value="3">3 ★</option>
+        <option value="2">2 ★</option>
+        <option value="1">1 ★</option>
+      </select>
+
+      <textarea
+        id="reviewText"
+        placeholder="Write your review..."
+        minlength="10"
+        maxlength="500"
+        required
+      ></textarea>
+
+      <input type="file" id="reviewImage" accept="image/png,image/jpeg,image/webp" />
+
+      <button type="submit" id="submitReviewBtn">Submit review</button>
+    </form>
+
+    <p id="reviewMessage" class="msg"></p>
+  </div>
+
+  <script type="module" src="review.js"></script>
+</body>
+</html>

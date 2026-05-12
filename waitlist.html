@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5LXRF9534"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S5LXRF9534');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAD DECISIONS</title>
+    
+    <link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="Logo%20bd%20no%20bg%20black.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Logo%20bd%20no%20bg%20black.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .text-glow {
+      text-shadow: 0 4px 22px rgba(0,0,0,0.75);
+    }
+
+    .content-halo {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.35) 40%,
+        rgba(0,0,0,0.15) 60%,
+        rgba(0,0,0,0) 75%
+      );
+    }
+
+    .no-halo {
+      background: none !important;
+    }
+
+    .site-header {
+      background: black;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      padding-left: 32px;
+      position: relative;
+      z-index: 50;
+    }
+
+    .site-header img {
+      height: 65px;
+      width: auto;
+      display: block;
+    }
+      
+      .waitlist-hero {
+  background-image: url('slike/hotel2.JPG');
+}
+
+@media (max-width: 768px) {
+  .waitlist-hero {
+    background-image: url('Slike/hotel.JPG');
+  }
+}
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+  </style>
+
+</head>
+
+<body class="bg-black text-white">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html">
+      <img src="Slike/Logo%20bd%20no%20bg%20white.png" alt="Bad Decisions">
+    </a>
+  </header>
+
+  <!-- HERO -->
+ <section class="waitlist-hero relative min-h-screen bg-cover bg-center flex items-center justify-center">
+    <div
+      id="halo"
+      class="content-halo w-full max-w-3xl py-20 md:py-24 flex flex-col items-center text-center px-6 -mt-24 md:-mt-16"
+    >
+
+      <h1 class="text-3xl md:text-6xl font-light tracking-wide mb-3 md:mb-4 text-glow">
+        Join the Waitlist
+      </h1>
+
+      <p class="text-white/90 max-w-md mb-8 md:mb-10 text-sm md:text-base font-light tracking-wide text-glow">
+        Early access, limited drops & exclusive updates
+      </p>
+
+      <!-- FORM -->
+      <form
+        id="brevo-form"
+        class="w-full max-w-sm md:max-w-md flex items-center bg-white/5 backdrop-blur-sm border border-white/40 rounded-full p-1 transition-all duration-500"
+      >
+        <input
+          type="email"
+          name="EMAIL"
+          required
+          placeholder="Email"
+          class="flex-1 px-4 md:px-5 py-2.5 md:py-3 bg-transparent text-white placeholder-white/80 rounded-full focus:outline-none text-sm md:text-base"
+        />
+          
+          <input type="hidden" name="SIGNUP_SOURCE" id="signup-source" value="">
+
+        <button
+          type="submit"
+          class="px-5 md:px-7 py-2.5 md:py-3 border border-white/50 text-white rounded-full font-light tracking-wide hover:bg-white/10 transition text-sm md:text-base"
+        >
+          Join
+        </button>
+      </form>
+
+
+      <!-- SUCCESS MESSAGE (MOVED INTO DARK AREA ON MOBILE ONLY) -->
+      <div
+        id="success-message"
+class="hidden mt-10 md:mt-6 flex flex-col items-center justify-center text-center gap-3 animate-fade-in relative bottom-14 md:bottom-10"
+      >
+        <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full border-2 border-green-400 bg-green-400/15 shadow-lg shadow-green-500/20">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 md:w-8 md:h-8 text-green-400"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <p class="text-white text-xl md:text-2xl font-light tracking-wide text-glow">
+          You’re on the waitlist
+        </p>
+
+        <p class="text-white/60 text-xs md:text-sm font-light tracking-wide">
+          Redirecting you shortly…
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="w-full bg-black py-10 flex justify-center gap-6">
+
+  <!-- TIKTOK -->
+  <a
+    href="https://www.tiktok.com/@bad.decisions_official"
+    target="_blank"
+    aria-label="TikTok"
+    class="flex items-center transform transition duration-300 ease-out hover:scale-110"
+  >
+    <img
+      src="Slike/tiktok_logo_white.png"
+      alt="TikTok"
+      class="w-8 h-8 transition duration-300 ease-out hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+    />
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a
+    href="https://instagram.com/@bad.decisions_official"
+    target="_blank"
+    aria-label="Instagram"
+    class="flex items-center transform transition duration-300 ease-out hover:scale-110"
+  >
+    <img
+      src="Slike/ig_no_bg"
+      alt="Instagram"
+      class="w-7 h-7 transition duration-300 ease-out hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+    />
+  </a>
+
+</footer>
+
+  <!-- BREVO SUBMIT -->
+  <script>
+const form = document.getElementById("brevo-form");
+const successMessage = document.getElementById("success-message");
+const halo = document.getElementById("halo");
+const previewLink = document.getElementById("preview-link");
+const sourceInput = document.getElementById("signup-source");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const params = new URLSearchParams(window.location.search);
+
+let source = params.get("utm_source");
+
+if (!source) {
+  const ref = document.referrer.toLowerCase();
+
+  if (ref.includes("instagram")) {
+    source = "instagram";
+  } else if (ref.includes("tiktok")) {
+    source = "tiktok";
+  } else if (ref.includes("google")) {
+    source = "google";
+  } else if (ref.includes("facebook")) {
+    source = "facebook";
+  } else {
+    source = "direct";
+  }
+}
+
+source = source.replace(/[^a-zA-Z0-9_-]/g, "").toLowerCase();
+
+sourceInput.value = source;
+
+  const formData = new FormData(form);
+
+  gtag("event", "waitlist_signup", {
+    source: source,
+    value: 1,
+    transport_type: "beacon"
+  });
+
+  fetch("/.netlify/functions/subscribe", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    email: form.querySelector("input[name='EMAIL']").value,
+    source: source
+  })
+});
+
+  form.classList.add("opacity-0");
+
+  setTimeout(() => {
+    form.style.display = "none";
+    halo.classList.add("no-halo");
+    successMessage.classList.remove("hidden");
+  }, 500);
+
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 5000);
+});
+</script>
+
+</body>
+</html>
+
+

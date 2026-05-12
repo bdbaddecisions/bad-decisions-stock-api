@@ -2,18 +2,15 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const SUPABASE_URL = 'https://vggimxbnedaixxmpeaqs.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_e-5Ayplh4Uh9BfhfygnQww_8o7QwBmK';
-const PRODUCT_ID = '8';
+const PRODUCT_ID = 'oversized-hoodie';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const reviewsList = document.getElementById('reviewsList');
 const reviewsCount = document.getElementById('reviewsCount');
 const reviewsAverage = document.getElementById('reviewsAverage');
-const reviewForm = document.getElementById('reviewForm');
-const reviewMessage = document.getElementById('reviewMessage');
 
 let approvedReviews = [];
-let pendingReviews = [];
 
 function stars(rating) {
   return '★'.repeat(rating) + '☆'.repeat(5 - rating);
@@ -58,14 +55,14 @@ function updateSummary(allReviews) {
 function renderAllReviews() {
   if (!reviewsList) return;
 
-  const allReviews = [...pendingReviews, ...approvedReviews];
+  const allReviews = [...approvedReviews];
   updateSummary(allReviews);
 
   if (!allReviews.length) {
     reviewsList.innerHTML = `
       <article class="bd-review-card">
         <div class="bd-review-card__stars">☆☆☆☆☆</div>
-        <p class="bd-review-card__text">No reviews yet. Be the first to leave one.</p>
+        <p class="bd-review-card__text">No reviews yet.</p>
         <div class="bd-review-card__footer">
           <strong>Bad Decisions</strong>
           <span>Store</span>
@@ -76,24 +73,35 @@ function renderAllReviews() {
   }
 
   reviewsList.innerHTML = allReviews.map((item) => `
-    <article class="bd-review-card ${item.pending ? 'bd-review-card--pending' : ''}">
-      <div class="bd-review-card__stars">${stars(Number(item.rating || 0))}</div>
-      <p class="bd-review-card__text">${escapeHtml(item.review_text)}</p>
+  <article class="bd-review">
+    <div class="bd-review__header">
+      <div class="bd-review__identity">
+        <div class="bd-review__avatar">
+          ${escapeHtml((item.name || 'A').charAt(0).toUpperCase())}
+        </div>
 
-      ${item.image_url ? `
-        <img
-          class="bd-review-card__image"
-          src="${item.image_url}"
-          alt="Customer review photo"
-        >
-      ` : ''}
+        <div class="bd-review__meta">
+          <div class="bd-review__name-row">
+            <strong class="bd-review__name">${escapeHtml(item.name)}</strong>
+            <span class="bd-review__verified">Verified buyer</span>
+          </div>
 
-      <div class="bd-review-card__footer">
-        <strong>${escapeHtml(item.name)}</strong>
-        <span>${item.pending ? 'Submitted • awaiting approval' : 'Verified buyer'}</span>
+          <div class="bd-review__stars">${stars(Number(item.rating || 0))}</div>
+        </div>
       </div>
-    </article>
-  `).join('');
+    </div>
+
+    <p class="bd-review__text">${escapeHtml(item.review_text)}</p>
+
+    ${item.image_url ? `
+      <img
+        class="bd-review__image"
+        src="${item.image_url}"
+        alt="Customer review photo"
+      >
+    ` : ''}
+  </article>
+`).join('');
 }
 
 async function loadReviews() {
@@ -111,77 +119,30 @@ async function loadReviews() {
 
   approvedReviews = data || [];
   renderAllReviews();
+  updateProductRating(approvedReviews);
 }
 
-reviewForm?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById('reviewName')?.value.trim();
-  const email = document.getElementById('reviewEmail')?.value.trim();
-  const rating = Number(document.getElementById('reviewRating')?.value);
-  const reviewText = document.getElementById('reviewText')?.value.trim();
-  const imageFile = document.getElementById('reviewImage')?.files?.[0];
-
-  if (!name || !email || !rating || !reviewText) {
-    reviewMessage.textContent = 'Please fill in all fields.';
-    return;
-  }
-
-  reviewMessage.textContent = 'Submitting review...';
-
-  let imageUrl = null;
-
-  if (imageFile) {
-    const fileExt = imageFile.name.split('.').pop();
-    const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${fileExt}`;
-    const filePath = `reviews/${fileName}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from('review-images')
-      .upload(filePath, imageFile);
-
-    if (uploadError) {
-      console.error('Image upload error:', uploadError);
-      reviewMessage.textContent = 'Image upload failed. Please try again.';
-      return;
-    }
-
-    const { data } = supabase.storage
-      .from('review-images')
-      .getPublicUrl(filePath);
-
-    imageUrl = data.publicUrl;
-  }
-
-  const newReview = {
-    product_id: PRODUCT_ID,
-    name,
-    email,
-    rating,
-    review_text: reviewText,
-    image_url: imageUrl,
-    approved: false
-  };
-
-  const { error } = await supabase
-    .from('reviews')
-    .insert([newReview]);
-
-  if (error) {
-    console.error('Submit review error:', error);
-    reviewMessage.textContent = 'Something went wrong. Please try again.';
-    return;
-  }
-
-  pendingReviews.unshift({
-    ...newReview,
-    pending: true
-  });
-
-  renderAllReviews();
-
-  reviewForm.reset();
-  reviewMessage.textContent = 'Thanks! Your review was submitted.';
-});
-
 loadReviews();
+
+function updateProductRating(reviews) {
+  const starsEl = document.getElementById("productStars");
+  const valueEl = document.getElementById("productRatingValue");
+  const countEl = document.getElementById("productRatingCount");
+
+  if (!reviews.length) {
+    starsEl.textContent = "☆☆☆☆☆";
+    valueEl.textContent = "0.0";
+    countEl.textContent = "(0 reviews)";
+    return;
+  }
+
+  const avg =
+    reviews.reduce((sum, r) => sum + Number(r.rating || 0), 0) /
+    reviews.length;
+
+  const rounded = Math.round(avg);
+
+  starsEl.textContent = "★★★★★".slice(0, rounded) + "☆☆☆☆☆".slice(rounded);
+  valueEl.textContent = avg.toFixed(1);
+  countEl.textContent = `(${reviews.length} review${reviews.length === 1 ? "" : "s"})`;
+}

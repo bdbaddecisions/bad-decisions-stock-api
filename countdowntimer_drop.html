@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drop Countdown - Bad Decisions</title>
+
+  <link rel="icon" type="image/png" href="Slike/Logo_bd_no_bg_black.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #050505;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 90px;
+      margin-bottom: 35px;
+      filter: invert(1);
+      opacity: 0.9;
+    }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .subtitle {
+      color: #b5b5b5;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 45px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .time-box {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      padding: 28px 12px;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .time-box span {
+      display: block;
+      font-size: clamp(34px, 7vw, 70px);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .time-box small {
+      color: #999;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .access-box {
+      margin-bottom: 30px;
+    }
+
+    .access-title {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 8px;
+    }
+
+    .access-subtitle {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 14px;
+    }
+
+    #accessCodeInput {
+      width: 100%;
+      max-width: 280px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 2px;
+      outline: none;
+      text-transform: uppercase;
+    }
+
+    #accessCodeInput::placeholder {
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    #accessCodeInput:focus {
+      border-color: white;
+    }
+
+    #codeMessage {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #777;
+      min-height: 16px;
+    }
+
+    .enter-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 240px;
+      height: 56px;
+      border-radius: 999px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.25s ease;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .enter-btn.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .enter-btn.active:hover {
+      transform: translateY(-3px);
+      background: #dcdcdc;
+    }
+
+    .locked-text {
+      margin-top: 18px;
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .bg-text {
+      position: fixed;
+      inset: auto 0 5%;
+      font-size: 14vw;
+      font-weight: 900;
+      color: rgba(255,255,255,0.025);
+      text-transform: uppercase;
+      white-space: nowrap;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .time-box {
+        padding: 24px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-text">BAD DECISIONS</div>
+
+  <main class="page">
+    <img src="Slike/Logo_bd_no_bg_black.png" alt="Bad Decisions Logo" class="logo">
+
+    <p class="kicker">First Drop Unlocks Soon</p>
+
+    <h1>Drop Access<br>Countdown</h1>
+
+    <p class="subtitle">
+      Early access is reserved for waitlist members only.
+      Waitlist members can enter 24 hours before the public drop.
+    </p>
+
+    <section class="countdown">
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>Days</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>Hours</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Minutes</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Seconds</small>
+      </div>
+    </section>
+
+    <div class="access-box">
+      <p class="access-title">Waitlist Members Only</p>
+      <p class="access-subtitle">Enter your early access code</p>
+
+      <input 
+        type="text" 
+        id="accessCodeInput" 
+        placeholder="Enter code" 
+        autocomplete="off"
+      />
+
+      <p id="codeMessage"></p>
+    </div>
+
+    <a href="index.html" id="enterBtn" class="enter-btn">Enter Early Access</a>
+
+    <p id="lockedText" class="locked-text">Access is locked</p>
+  </main>
+
+  <script>
+    /*
+      CHANGE THIS DATE TO YOUR PUBLIC DROP TIME.
+
+      Format:
+      new Date(YEAR, MONTH, DAY, HOUR, MINUTE, SECOND)
+
+      IMPORTANT:
+      January = 0
+      February = 1
+      March = 2
+      April = 3
+      May = 4
+      June = 5
+    */
+
+    const dropDate = new Date(2026, 3, 28, 21, 0, 0).getTime();
+
+    // Waitlist members can enter 24 hours before public drop
+    const earlyAccessTime = dropDate - 24 * 60 * 60 * 1000;
+
+    // CHANGE THIS CODE TO YOUR REAL EARLY ACCESS CODE
+    const EARLY_CODE = "BD2026";
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const enterBtn = document.getElementById("enterBtn");
+    const lockedText = document.getElementById("lockedText");
+    const accessInput = document.getElementById("accessCodeInput");
+    const codeMessage = document.getElementById("codeMessage");
+
+    let hasAccess = false;
+
+    if (localStorage.getItem("bd_access") === "true") {
+      hasAccess = true;
+      accessInput.value = EARLY_CODE;
+      codeMessage.textContent = "Access code already verified";
+      codeMessage.style.color = "#4CAF50";
+    }
+
+    accessInput.addEventListener("input", () => {
+      const value = accessInput.value.trim().toUpperCase();
+
+      if (value === "") {
+        hasAccess = false;
+        codeMessage.textContent = "";
+        localStorage.removeItem("bd_access");
+      } 
+      else if (value === EARLY_CODE) {
+        hasAccess = true;
+        codeMessage.textContent = "Access code valid";
+        codeMessage.style.color = "#4CAF50";
+        localStorage.setItem("bd_access", "true");
+      } 
+      else {
+        hasAccess = false;
+        codeMessage.textContent = "Invalid early access code";
+        codeMessage.style.color = "#ff4d4d";
+        localStorage.removeItem("bd_access");
+      }
+
+      updateAccessButton();
+    });
+
+    function updateAccessButton() {
+      const now = new Date().getTime();
+
+      if (now < earlyAccessTime) {
+        enterBtn.classList.remove("active");
+        lockedText.textContent = "Early access opens 24 hours before the public drop";
+        return;
+      }
+
+      if (now >= earlyAccessTime && now < dropDate) {
+        if (hasAccess) {
+          enterBtn.classList.add("active");
+          lockedText.textContent = "Early access unlocked — enter now";
+        } else {
+          enterBtn.classList.remove("active");
+          lockedText.textContent = "Enter a valid early access code";
+        }
+        return;
+      }
+
+      if (now >= dropDate) {
+        enterBtn.classList.add("active");
+        lockedText.textContent = "Public drop is live — enter now";
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = dropDate - now;
+
+      if (distance <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+
+        updateAccessButton();
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, "0");
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
+
+      updateAccessButton();
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
